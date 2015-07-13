@@ -1,0 +1,22 @@
+html(lang="en-US" ng-app="bundle")
+	head
+		meta(charset="utf-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+		title Bundle
+		link(rel="stylesheet" href="lib/build.css")
+		link(rel='stylesheet', href='assets/main.css')
+	body.container
+		nav.topheader.navbar.navbar-inverse.navbar-fixed-top.col-lg-12.row
+			.navbar-header.container-fluid
+				ul.nav.navbar-nav
+					li: a.navbar-link.navbar-right(ui-sref="home") Home
+					li: a.navbar-link.navbar-left(ui-sref='bundleDash.data') Bundle Dashboard
+					li: a.navbar-link.navbar-left(ui-sref='login') Login
+	ui-view
+
+	script(src='lib/build.js')
+	script(src='js/main.js')
+
+	script(src='js/sectiondashcontroller.js')
+	script(src='js/bundledashcontroller.js')

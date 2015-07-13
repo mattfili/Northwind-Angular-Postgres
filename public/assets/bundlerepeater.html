@@ -1,0 +1,17 @@
+
+<div class="row">
+  <div class="bundleRepeater col-lg-4">
+    <div ng-repeat="(id, titles) in bundleDash.bunName" class="panel-group">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title"><a id="panelheader" editable-text="titles.bun_title" onaftersave="bundleDash.editBunName(id, titles.bun_title)" buttons="no">{{titles.bun_title}}</a><a ui-sref="sectionDash.data({bKey: id})" class="glyphicon glyphicon-option-vertical icon-arrow-right pull-right"></a></h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="list-group">
+            <div ng-repeat="section in titles.content" class="list-group-item">{{section.section_title}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

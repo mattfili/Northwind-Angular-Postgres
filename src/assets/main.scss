@@ -1,0 +1,90 @@
+///- Landing
+html {
+	min-width: 1063px;
+	min-height: 700px
+}
+
+.topheader {
+	width: 125%
+
+	ul li {
+		text-decoration: none;
+		list-style: none;
+	}
+
+	ul li a:hover {
+		color: dark-gray;
+	}
+
+	ul li:nth-child(-n+2) a {
+		float: right;
+	}
+}
+
+.app {
+	width: 100%;
+	height: 100%;
+}
+
+//- Bundle & Section Dashboard
+
+.newbundleform {
+	padding: 10px;
+}
+
+//- Anything in the bundledashboard under the navbar
+.bundledashboard {
+	margin-top: 60px;
+	width: 100%
+}
+
+//- Adding a new bundle with the input form
+.newBundle {
+	margin-left: -31px;
+}
+
+//- The frame where the bundles / sections exist 
+.bundleRepeater { 
+	text-decoration: none;
+	max-height: 680px;
+	margin-left: -31px;
+};
+
+.panel-group {
+	width: 350px;
+	min-width: 350px;
+}
+
+//- The frame where the sections exist
+.panelRepeater {
+	text-decoration: none;
+	margin: 10px 5px 0px 0px;
+};
+
+// Anything in the sections frame under the navbar
+.sectiondashboard {
+	margin-top: 60px;
+	width: 100%
+}
+
+//- Bundle Content in the Section Panel
+.list-group  {
+
+	a {
+		text-decoration: none;
+		}
+
+}
+
+// input group for adding new URLs and Titles
+.newContent {
+		input {
+		height: 10px;
+	}
+}
+
+#datbutton {
+	height: 43px;
+}
+
+
