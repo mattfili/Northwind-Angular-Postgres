@@ -15,9 +15,8 @@
     "tests"
   ],
   "dependencies": {
-    "foundation": "zurb/bower-foundation",
+    "foundation": "~5.5.2",
     "angular": "~1.4.3",
-    "ui-router": "~0.2.15",
     "foundation-apps": "~1.1.0",
     "angular-animate": "~1.4.3",
     "tether": "~1.1.0",
@@ -25,7 +24,8 @@
     "jquery": "~2.1.4",
     "jquery-placeholder": "~2.1.2",
     "modernizr": "~2.8.3",
-    "angular-ui-router": "~0.2.15"
+    "viewport-units-buggyfill": "~0.5.4",
+    "fastclick": "~1.0.6"
   },
   "resolutions": {
     "angular-animate": "~1.4.3"

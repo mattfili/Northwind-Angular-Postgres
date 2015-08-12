@@ -68,6 +68,7 @@ module.exports = function(grunt) {
               '**',
               '!**/*.jade',
               '!**/*.scss',
+              '!**/*.css',
               '!**/*.js',
             ],
             dest: 'public/',
@@ -127,7 +128,8 @@ module.exports = function(grunt) {
           sourceMapEmbed: true
         },
         files: {
-          'public/css/main.css': 'src/scss/main.scss'
+          'public/css/main.css': 'src/scss/main.scss',
+          'public/lib/build.css': 'src/css/main.css'
         }
       }
     },
@@ -189,10 +191,10 @@ module.exports = function(grunt) {
   grunt.registerTask('build-dev', [
     'clean',
     'copy',
+    'sass:dev',
     'babel:dev',
     'bower_concat',
     'jade:dev',
-    'sass:dev',
     'autoprefixer'
   ]);
 

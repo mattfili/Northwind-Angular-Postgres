@@ -45,7 +45,9 @@
       mediaQueries = helpers.parseStyleToObject((extractedMedia));
 
       for(var key in mediaQueries) {
+        if (mediaQueries[key]) {
         mediaQueries[key] = 'only screen and (min-width: ' + mediaQueries[key].replace('rem', 'em') + ')';
+      }      
       }
 
 
