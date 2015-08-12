@@ -1,0 +1,20 @@
+{
+  "name": "Fili-family-picture-app",
+  "version": "1.0.0",
+  "homepage": "https://github.com/mattfili/Fili-family-picture-app",
+  "authors": [
+    "Matt Fili <matthewjosephfili@gmail.com>"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "zurb/bower-foundation"
+  }
+}
