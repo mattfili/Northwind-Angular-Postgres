@@ -25,7 +25,9 @@
     "jquery-placeholder": "~2.1.2",
     "modernizr": "~2.8.3",
     "viewport-units-buggyfill": "~0.5.4",
-    "fastclick": "~1.0.6"
+    "fastclick": "~1.0.6",
+    "raphael": "~2.1.4",
+    "colorwheel": "~1.0.0"
   },
   "resolutions": {
     "angular-animate": "~1.4.3"
