@@ -27,7 +27,8 @@
     "viewport-units-buggyfill": "~0.5.4",
     "fastclick": "~1.0.6",
     "raphael": "~2.1.4",
-    "colorwheel": "~1.0.0"
+    "colorwheel": "master",
+    "ng-colorwheel": "~0.1.4"
   },
   "resolutions": {
     "angular-animate": "~1.4.3"

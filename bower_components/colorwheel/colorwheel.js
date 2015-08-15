@@ -13,6 +13,7 @@
 Raphael.colorwheel = function(target, color_wheel_size, no_segments){
   var canvas,
       current_color,
+      current_color_hsb,
       size,
       segments = no_segments || 60,
       bs_square = {},
@@ -64,7 +65,8 @@ Raphael.colorwheel = function(target, color_wheel_size, no_segments){
       input: input,
       onchange: onchange,
       ondrag : ondrag,
-      color : public_set_color
+      color : public_set_color,
+      color_hsb : public_set_color_hsb
     };
   }
 
@@ -173,7 +175,29 @@ Raphael.colorwheel = function(target, color_wheel_size, no_segments){
 
   function set_hue(color){
     var hex = Raphael.getRGB(color).hex;
-    bs_square.h.attr("fill", hex);
+    createGradient($(target)[0],'squareGradient', hex, [
+    {offset:'5%', 'stop-color':'#fff'},
+    {offset:'50%', 'stop-color': hex},
+    {offset:'95%','stop-color':'#000'}
+    ]);
+    bs_square.h.attr("fill", "url(#squareGradient)");
+  }
+
+    function createGradient(canvas, id, color, stops) {
+      var svgNS = canvas.namespaceURI;
+      var grad  = document.createElementNS(svgNS,'linearGradient');
+      grad.setAttribute('id',id);
+        for (var i=0;i<stops.length;i++){
+          var attrs = stops[i];
+          var stop = document.createElementNS(svgNS,'stop');
+          for (var attr in attrs){
+            if (attrs.hasOwnProperty(attr)) stop.setAttribute(attr,attrs[attr]);
+          }
+          grad.appendChild(stop);
+        }
+        var defs = canvas.querySelector('defs') ||
+          canvas.insertBefore( document.createElementNS(svgNS,'defs'));
+          return defs.appendChild(grad);
   }
 
   function hue(){
@@ -181,16 +205,39 @@ Raphael.colorwheel = function(target, color_wheel_size, no_segments){
   }
 
   function public_set_color(value){
-    var ret = set_color(value);
+    var ret = set_color(value, false);
     update_color(false);
     return ret;
   }
 
-  function set_color(value){
-    if(value === undefined){ return current_color; }
+  function public_set_color_hsb(hsb){
+    var ret = set_color(hsb, true);
+    update_color(false);
+    return ret;
+  }
 
-    var temp = canvas.rect(1,1,1,1).attr({fill:value}),
-        hsb = canvas.raphael.rgb2hsb(temp.attr("fill"));
+  function set_color(value, is_hsb){
+    if(value === undefined){
+        if(is_hsb){
+            return current_color_hsb;
+        } else {
+            return current_color;
+        }
+    }
+
+    var hsb, hex;
+    if(is_hsb){
+        hsb = value;
+        // Allow v (value) instead of b (brightness), as v is sometimes
+        // used by Raphael.
+        if(hsb.b === undefined){ hsb.b = hsb.v; }
+        var rgb = canvas.raphael.hsb2rgb(hsb.h, hsb.s, hsb.b);
+        hex = rgb.hex;
+    } else {
+        hex = value;
+        hsb = canvas.raphael.rgb2hsb(hex);
+    }
+    var temp = canvas.rect(1,1,1,1).attr({fill:hex});
 
     set_bs_cursor(
       (0-sdim.l/2) + (sdim.l*hsb.s),
@@ -210,6 +257,7 @@ Raphael.colorwheel = function(target, color_wheel_size, no_segments){
           h: hue()
         };
 
+    current_color_hsb = hsb;
     current_color = Raphael.hsb2rgb(hsb.h, hsb.s,hsb.b);
 
     if(input_target){
@@ -262,6 +310,9 @@ Raphael.colorwheel = function(target, color_wheel_size, no_segments){
     bs_square.b = canvas.rect.apply(canvas, box).attr({
       stroke:null, gradient: "90-#000-#FFF", opacity:0});
     bs_square.b.node.style.cursor = "crosshair";
+    $('#10-_FFF-rgba_255_255_255_0_ stop:last-child').attr('stop-opacity', 0);
+    $('#290-_000-rgba_255_255_255_0_ stop:last-child').attr('stop-opacity', 0);
+
   }
 
   function hue_segement_shape(){

@@ -1,4 +1,4 @@
-angular.module('FFF', ['ui.router','foundation', 'foundation.common', 'ngAnimate'])
+angular.module('Color Wheel', ['ui.router','foundation', 'foundation.common', 'ngAnimate', 'directive.ngColorwheel'])
 
 .constant('FIRE_URL', 'https://filifamfotos.firebaseIO.com')
 
@@ -19,55 +19,11 @@ angular.module('FFF', ['ui.router','foundation', 'foundation.common', 'ngAnimate
 	.state('start.dash', {
 		url: '/landing',
 	    views: {
-	      'feature': {
-	        templateUrl: 'assets/featurepics.html',
-	        controller: 'featureController'
+	      'colorwheel': {
+	        templateUrl: 'assets/color-dash.html',
+	        controller: 'colorController',
+	        controllerAs: 'colorCtrl'
 	      }
 	    }
 	})
 })
-
-.directive('colorwheel', function (FIRE_URL) {
-	directive = {
-		link: link,
-      	restrict: 'EA',
-      	require: '?ngModel'
-	}
-	ngColorwheelDirective = function(scope, elem, attrs, ngModelCtrl) {
-	      var cw, init, options, toView, updateModel;
-	      if ((typeof Raphael !== "undefined" && Raphael !== null ? Raphael.colorwheel : void 0) == null) {
-	        return;
-	      }
-	      options = null;
-	      try {
-	        options = scope.$eval(attrs.ngColorwheel);
-	      } catch (_error) {
-	        console.log('ERROR ON PARSING JSON-string:', attrs.ngColorwheel);
-	      }
-	      if (options == null) {
-	        options = {};
-	      }
-	      if (options.size == null) {
-	        options.size = 150;
-	      }
-	      cw = null;
-	      init = function() {
-	        cw = Raphael.colorwheel(elem[0], options.size, options.segments);
-	        ngModelCtrl.$formatters.push(toView);
-	        return cw.onchange(updateModel);
-	      };
-	      toView = function(modelValue) {
-	        if (modelValue != null) {
-	          cw.color(modelValue);
-	        }
-	        return modelValue;
-	      };
-	      updateModel = function(color) {
-	        return ngModelCtrl.$setViewValue(color.hex);
-	      };
-	      init();
-	}
-
-	return directive;
-    
-});
