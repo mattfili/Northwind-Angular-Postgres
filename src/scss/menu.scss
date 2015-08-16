@@ -1,5 +1,6 @@
 .menu-top {
 	@include grid-content {
-		$size: expand
+		padding: 0;
 	}
+	padding: 0 !important;
 }
