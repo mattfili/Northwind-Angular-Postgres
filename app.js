@@ -10,6 +10,25 @@ var users = require('./routes/users');
 
 var app = express();
 
+
+
+// db
+require(path.join(process.cwd(), './lib/mongodb'));
+
+//config
+
+app.configure('development', function(){
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
+});
+
+app.configure('production', function(){
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
+});
+
+if (process.env.NODE_ENV !== 'production') {
+  require('./lib/secrets');
+}
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

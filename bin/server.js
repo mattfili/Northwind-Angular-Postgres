@@ -19,7 +19,7 @@ var app = express();
 
 var randomPort = getRandomInt(3000,65536);
 
-var port = normalizePort(process.env.PORT || randomPort);
+var port = normalizePort(process.env.PORT || 8080);
 app.use(express.static('public'));
 
 /**
