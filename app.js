@@ -22,12 +22,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//pre-login routes
+
 app.use('/', routes);
 app.use('/users', users);
 
+// authorization middleware
+
+// post-login routes
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  var err = new Error("Can't find it: " + err.status);
   err.status = 404;
   next(err);
 });

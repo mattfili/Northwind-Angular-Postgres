@@ -2,12 +2,6 @@ module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
 
-  function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
-
-  var randomPort = getRandomInt(3000,65536);
-
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     autoprefixer: {
@@ -48,16 +42,6 @@ module.exports = function(grunt) {
       }
     },
     clean: ['public'],
-    connect: {
-      main: {
-        options: {
-          port: randomPort,
-          base: 'public/',
-          open: true,
-          livereload: true
-        }
-      }
-    },
     copy: {
       main: {
         files: [
@@ -156,7 +140,8 @@ module.exports = function(grunt) {
           livereload: true
         },
         files: [
-          'server.js',
+          'model/*.js',
+          'routes/*.js',
           'public/css/main.css',
           'public/js/**/*.js',
           'public/**/*.html'
@@ -174,10 +159,20 @@ module.exports = function(grunt) {
         files: ['src/js/**/*.js'],
         tasks: ['babel:dev']
       }
-    }
+    },
+    nodemon: {
+      dev: {
+        script: 'bin/server.js'
+      }
+    },
+    concurrent: {
+      options: {
+        logConcurrentOutput: true
+      },
+      tasks: ['nodemon', 'watch']
+    },
   });
 
-  grunt.registerTask('default', []);
   grunt.registerTask('build', [
     'clean',
     'copy',
@@ -201,8 +196,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('serve', [
     'build-dev',
-    'connect',
-    'watch'
+    'concurrent'
   ]);
 
 };
