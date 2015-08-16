@@ -1,7 +1,7 @@
 {
-  "name": "Fili-family-picture-app",
+  "name": "bundler_capston",
   "version": "1.0.0",
-  "homepage": "https://github.com/mattfili/Fili-family-picture-app",
+  "homepage": "https://github.com/mattfili/bundler_capstone.git",
   "authors": [
     "Matt Fili <matthewjosephfili@gmail.com>"
   ],
@@ -22,15 +22,9 @@
     "tether": "~1.1.0",
     "hammerjs": "~2.0.4",
     "jquery": "~2.1.4",
-    "jquery-placeholder": "~2.1.2",
     "modernizr": "~2.8.3",
     "viewport-units-buggyfill": "~0.5.4",
     "fastclick": "~1.0.6",
-    "raphael": "~2.1.4",
-    "colorwheel": "master",
-    "ng-colorwheel": "~0.1.4"
-  },
-  "resolutions": {
-    "angular-animate": "~1.4.3"
+    "angular-masonry": "~0.11.1"
   }
 }

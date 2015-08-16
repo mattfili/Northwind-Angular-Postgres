@@ -1,5 +1,5 @@
 {
-  "name": "Fili-family-picture-app",
+  "name": "Capstone",
   "version": "1.0.0",
   "description": "Web application using AngularJS",
   "main": "index.html",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mattfili/Fili-family-picture-app.git"
+    "url": "https://github.com/mattfili/bundler_capstone.git"
   },
   "author": "matt fili <matthewjosephfili@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mattfili/Fili-family-picture-app/issues"
+    "url": "https://github.com/mattfili/Fbundler_capstone/issues"
   },
-  "homepage": "https://github.com/mattfili/Fili-family-picture-app",
+  "homepage": "https://github.com/mattfili/bundler_capstone",
   "devDependencies": {
     "babel": "^5.8.21",
     "bowcat": "0.0.5",

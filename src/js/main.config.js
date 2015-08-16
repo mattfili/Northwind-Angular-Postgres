@@ -1,4 +1,4 @@
-angular.module('Color Wheel', ['ui.router','foundation', 'foundation.common', 'ngAnimate', 'directive.ngColorwheel'])
+angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAnimate'])
 
 .constant('FIRE_URL', 'https://filifamfotos.firebaseIO.com')
 
@@ -19,10 +19,10 @@ angular.module('Color Wheel', ['ui.router','foundation', 'foundation.common', 'n
 	.state('start.dash', {
 		url: '/landing',
 	    views: {
-	      'colorwheel': {
-	        templateUrl: 'assets/color-dash.html',
-	        controller: 'colorController',
-	        controllerAs: 'colorCtrl'
+	      'bDash': {
+	        templateUrl: 'assets/bDash.html',
+	        controller: 'bDashController',
+	        controllerAs: 'bCtrl'
 	      }
 	    }
 	})
