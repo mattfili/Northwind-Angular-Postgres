@@ -9,9 +9,31 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <ui-view class="grid-frame"></ui-view>
+    <div ng-controller="loginCtrl" class="menu-top">
+      <div class="menu-group dark">
+        <div class="menu-group-left">
+          <ul class="dark menu-bar">
+            <li><a ui-sref="#"> </a></li>
+            <li><a ui-sref="start.dash">Home</a></li>
+            <li><a ui-sref="">Add</a></li>
+          </ul>
+        </div>
+        <div class="menu-group-right">
+          <ul class="dark menu-bar">
+            <li><a ui-sref="login">Login</a></li>
+            <li><a ui-sref="signup">Sign up</a></li>
+            <li><a href="javascript:void(0)" ng-click="loginCtrl.logout()">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </body>
+  <ui-view class="grid-frame"></ui-view>
   <script src="lib/build.js"></script>
   <script src="js/main.config.js"></script>
   <script src="js/bDash.controller.js"></script>
+  <script src="js/auth.controller.js"></script>
+  <script src="js/confirmPassword.js"></script>
+  <script src="js/auth.controller.js"></script>
+  <script src="js/main.factory.js"></script>
 </html>

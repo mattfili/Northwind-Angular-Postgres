@@ -1,0 +1,14 @@
+.grid-block
+	.grid-container
+		h3.text-center Login
+		form(method="post" ng-submit="loginCtrl.login()" name="loginForm")
+			label Email
+				input(type="email", ng-model="loginCtrl.email" placeholder="Enter your email" name="email" required)
+				.validation(ng-if="loginForm.email.$dirty" ng-messages="loginForm.email.$error")
+					.message(ng-message="required") Try again, your email address is invalid
+			label Password
+				input(type="password", ng-model="loginCtrl.password" placeholder="Password" name= "password" required)
+				.validation(ng-if="loginForm.password.$dirty" ng-messages="loginForm.password.$error")
+					.message(ng-message="required") You masterful blackhat! We do need a password though...
+
+				button.button-auth.expand(type="submit" ng-disabled="loginForm.$invalid") Login

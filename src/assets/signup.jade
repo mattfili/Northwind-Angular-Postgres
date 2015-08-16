@@ -1,0 +1,23 @@
+.grid-block
+	.grid-container
+		h3.text-center Sign up
+		form(method="post" ng-submit="signup()" name="signupForm")
+			label Email
+				input(type="email", ng-model="email" placeholder="enter your email" name="email" required autofocus)
+				.validation(ng-if="signupForm.email.$dirty" ng-messages="signupForm.email.$error")
+					.message(ng-message="required") Try again, your email address is invalid
+
+			label Password
+				input(type="password", ng-model="password" placeholder="password" name= "password" required)
+				.validation(ng-if="signupForm.password.$dirty" ng-messages="signupForm.password.$error")
+					.message(ng-message="required") You masterful blackhat! We do need a password though...
+
+			label Password
+				input(type="password", ng-model="confirmPassword" placeholder="confirmPassword" name= "confirmpassword" confirm-password="password" ng-class="{ 'success' : signupForm.confirmPassword.$valid && signupForm.confirmPassword.$dirty, 'warning' : signupForm.confirmPassword.$invalid && signupForm.confirmPassword.$dirty }" required)
+				.validation(ng-if="signupForm.confirmPassword.$dirty" ng-messages="signupForm.confirmPassword.$error")
+					.message(ng-message="required") Common, it's for your own saftey
+					.message(ng-message="repeat") Slow down, try to get them the same next time
+
+				button.button-auth.expand(type="submit" ng-disabled="signupForm.$invalid") Create account
+
+

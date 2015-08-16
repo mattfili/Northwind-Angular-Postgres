@@ -1,6 +1,5 @@
 angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAnimate', 'ngCookies', 'ngResource', 'ngMessages'])
 
-.constant('FIRE_URL', 'https://filifamfotos.firebaseIO.com')
 
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 	$urlRouterProvider.when('', '/');
@@ -27,5 +26,20 @@ angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAn
 	        controllerAs: 'bCtrl'
 	      }
 	    }
+	})
+	.state('login', {
+		url: '/login',
+		templateUrl: 'assets/login.html',
+		controller: 'loginCtrl'
+	})
+	.state('signup', {
+		url: '/signup',
+		templateUrl: 'assets/signup.html',
+		controller: 'signupCtrl'
+	})
+	.state('add', {
+		url: '/signup/:id',
+		templateUrl: 'assets/signup.html',
+		controller: 'signupCtrl'
 	})
 })

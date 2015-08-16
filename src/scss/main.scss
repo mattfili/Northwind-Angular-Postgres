@@ -1,6 +1,21 @@
-@import "foundation";
-@import "menu";
-
+// Custom GLobal Styles, Variables, and Mixins
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
 
 $font-base: 'Open Sans', sans-serif;
+
+$dark-body: #14171B;
+$body-font-color: #FFF;
+$dark-primary: #1F222B;
+$dark-success: #17515A;
+$dark-warning: #F16364;
+$dark-active: #483BAF;
+
+
+
+// Imports
+@import "foundation";
+@import "menu";
+@import "auth";
+
+// body styling
+$body-bg: $dark-body !important;

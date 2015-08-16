@@ -1,9 +1,17 @@
-var mongo = require('mongodb').MongoClient;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 if (!global.db) {
 	var url = process.env.MONGODB_URL;
-  	mongo.connect(url, function(err, db) {
+	var db = mongoose;
+  	db.connect(url, function(err, db) {
     global.db = db;
-    console.log('MongoLab Connected')
   });
+  	
+  	db.connection.on('open', function () {
+  		console.log('Mongoose hole has been dug')
+  	})
+  	db.connection.on('error', function () {
+  		console.log("Can't seem to find the mongoose hole")
+  	})
 }

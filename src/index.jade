@@ -8,6 +8,18 @@ html(lang='en-US' ng-app="capstone")
     link(rel='stylesheet', href='lib/build.css')
     link(rel='stylesheet', href='css/main.css')
   body
+      .menu-top(ng-controller="loginCtrl")
+        .menu-group.dark
+          .menu-group-left
+            ul.dark.menu-bar
+              li: a(ui-sref="#") 
+              li: a(ui-sref="start.dash") Home
+              li: a(ui-sref="") Add
+          .menu-group-right
+            ul.dark.menu-bar
+              li: a(ui-sref="login") Login
+              li: a(ui-sref="signup") Sign up
+              li: a(href="javascript:void(0)" ng-click="loginCtrl.logout()") Logout
 
     ui-view.grid-frame
   //- vendor compiled scripts
@@ -15,6 +27,10 @@ html(lang='en-US' ng-app="capstone")
   //- front end scripts
   script(src='js/main.config.js')
   script(src='js/bDash.controller.js')
+  script(src='js/auth.controller.js')
+  script(src='js/confirmPassword.js')
+  script(src='js/auth.controller.js')
+  script(src='js/main.factory.js')
 
 
 

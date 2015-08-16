@@ -1,10 +1,10 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
 html {
   font-family: sans-serif;
   /* 1 */
@@ -379,7 +379,7 @@ html {
 
 body {
   background: #fff;
-  color: #222;
+  color: #FFF;
   padding: 0;
   margin: 0;
   font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
@@ -925,7 +925,7 @@ a, [ui-sref], [zf-open], [zf-close], [zf-toggle] {
         margin-left: 0.8rem;
         float: none; }
 
-.button, .button-group > li > a, .button-group > li > label, .button-group > li > button {
+.button, .button-group > li > a, .button-group > li > label, .button-group > li > button, .button-auth {
   display: inline-block;
   border: 0;
   text-align: center;
@@ -6372,7 +6372,7 @@ abbr,
 acronym {
   text-transform: uppercase;
   font-size: 90%;
-  color: #222;
+  color: #FFF;
   border-bottom: 1px dotted #ddd;
   cursor: help; }
 
@@ -6850,3 +6850,23 @@ blockquote p {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   padding: 0 !important; }
+
+.button-auth {
+  font-size: 0.9rem;
+  background: #00558b;
+  color: #fff; }
+  .button-auth .iconic {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    margin-right: 0.25em;
+    margin-top: -2px; }
+  .button-auth:hover, .button-auth:focus {
+    background: #004876;
+    color: #fff; }
+  .button-auth .iconic * {
+    fill: #fff;
+    stroke: #fff; }
+    .button-auth .iconic *.iconic-property-accent {
+      fill: #fff;
+      stroke: #fff; }
