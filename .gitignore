@@ -25,7 +25,5 @@ build/Release
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
-<<<<<<< HEAD
 bower_components
-=======
->>>>>>> c105c48301be9decf4b7108ddbe7e1b2d1e5f558
+bin/secrets.js
