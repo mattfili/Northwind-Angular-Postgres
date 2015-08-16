@@ -22,24 +22,20 @@ var randomPort = getRandomInt(3000,65536);
 var port = normalizePort(process.env.PORT || 8080);
 app.use(express.static('public'));
 
-/**
- * Create HTTP server.
- */
+//Create server.
+var server = {
+    Start: function() {
+      app.get('/', function (req, res) {
+        res.sendFile('./public/index.html')
+      })
 
-app.get('/', function (req, res) {
-  res.sendFile('./public/index.html')
-})
+      var server = app.listen(port, function () {
+        var host = server.address().address;
+        var port = server.address().port;
 
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-var server = app.listen(port, function () {
-  var host = server.address().address;
-  var port = server.address().port;
-
-  console.log("     You're listening to http://localhost:" +port + " home of the internet's smoothest jazz and easy listening" );
-});
+        console.log("     You're listening to http://localhost:" +port + " home of the internet's smoothest jazz and easy listening" );
+      });
+}
 
 
 /**
@@ -61,3 +57,5 @@ function normalizePort(val) {
 
   return false;
 }
+
+module.exports = server
