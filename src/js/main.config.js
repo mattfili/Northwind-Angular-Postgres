@@ -6,10 +6,7 @@ angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAn
 	$urlRouterProvider.when('', '/');
 	$urlRouterProvider.otherwise('/landing');
 
-	$locationProvider.html5Mode({
-		enabled: false,
-		requireBase: false
-	});
+	$locationProvider.html5Mode(true);
 
 	$stateProvider
 	.state('start', {

@@ -15,15 +15,6 @@ var app = express();
 require(path.join(process.cwd(), '/bin/mongodb'));
 
 //config
-
-app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
-});
-
-app.configure('production', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
-});
-
 if (process.env.NODE_ENV !== 'production') {
   require('/bin/secrets');
 }
