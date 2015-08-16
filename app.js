@@ -1,6 +1,5 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -13,7 +12,7 @@ var app = express();
 
 
 // db
-require(path.join(process.cwd(), './lib/mongodb'));
+require(path.join(process.cwd(), '/bin/mongodb'));
 
 //config
 
@@ -26,7 +25,7 @@ app.configure('production', function(){
 });
 
 if (process.env.NODE_ENV !== 'production') {
-  require('./lib/secrets');
+  require('/bin/secrets');
 }
 
 // view engine setup

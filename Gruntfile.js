@@ -107,7 +107,7 @@ module.exports = function(grunt) {
       },
       dev: {
         options: {
-          includePaths: ['bower_components/foundation/scss'],
+          includePaths: ['bower_components/foundation-apps/scss/'],
           sourceMap: true,
           sourceMapEmbed: true
         },
@@ -140,6 +140,7 @@ module.exports = function(grunt) {
           livereload: true
         },
         files: [
+          'app.js',
           'model/*.js',
           'routes/*.js',
           'public/css/main.css',

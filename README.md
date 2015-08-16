@@ -1,5 +1,3 @@
-# Fili-family-picture-app
+# Capstone Midterm
 
-Web application using AngularJS and Foundation
-
-Official Fili family hub to upload, share, and comment on albums and pictures
+Bundling and sharing stories with web content 

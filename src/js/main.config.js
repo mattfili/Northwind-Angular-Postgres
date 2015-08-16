@@ -1,4 +1,4 @@
-angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAnimate'])
+angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAnimate', 'ngCookies', 'ngResource', 'ngMessages'])
 
 .constant('FIRE_URL', 'https://filifamfotos.firebaseIO.com')
 
@@ -21,6 +21,11 @@ angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAn
 	    views: {
 	      'bDash': {
 	        templateUrl: 'assets/bDash.html',
+	        controller: 'bDashController',
+	        controllerAs: 'bCtrl'
+	      },
+	      'navbar': {
+	        templateUrl: 'assets/navbar.html',
 	        controller: 'bDashController',
 	        controllerAs: 'bCtrl'
 	      }

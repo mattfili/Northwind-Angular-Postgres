@@ -1,16 +1,20 @@
 doctype html
 html(lang='en-US' ng-app="capstone")
   head
+    base(href="/")
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Bundler
     link(rel='stylesheet', href='lib/build.css')
     link(rel='stylesheet', href='css/main.css')
   body
-    ui-view
 
+    ui-view.grid-frame
+  //- vendor compiled scripts
   script(src='lib/build.js')
+  //- front end scripts
   script(src='js/main.config.js')
   script(src='js/bDash.controller.js')
+
 
 
