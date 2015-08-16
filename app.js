@@ -9,8 +9,6 @@ var users = require('./routes/users');
 
 var app = express();
 
-
-
 // db
 require(path.join(process.cwd(), '/bin/mongodb'));
 
