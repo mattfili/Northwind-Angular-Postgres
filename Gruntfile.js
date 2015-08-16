@@ -156,6 +156,7 @@ module.exports = function(grunt) {
           livereload: true
         },
         files: [
+          'server.js',
           'public/css/main.css',
           'public/js/**/*.js',
           'public/**/*.html'

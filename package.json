@@ -1,40 +1,25 @@
 {
-  "name": "Capstone",
-  "version": "1.0.0",
-  "description": "Web application using AngularJS",
-  "main": "index.html",
+  "name": "midterm",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mattfili/bundler_capstone.git"
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "express-session": "^1.11.3",
+    "jade": "~1.11.0",
+    "jsdom": "^6.1.0",
+    "moment": "^2.10.6",
+    "mongodb": "^2.0.40",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0"
   },
-  "author": "matt fili <matthewjosephfili@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mattfili/Fbundler_capstone/issues"
-  },
-  "homepage": "https://github.com/mattfili/bundler_capstone",
   "devDependencies": {
-    "babel": "^5.8.21",
-    "bowcat": "0.0.5",
-    "grunt": "^0.4.5",
-    "grunt-autoprefixer": "^3.0.3",
-    "grunt-babel": "^5.0.1",
-    "grunt-bower-concat": "^0.5.0",
-    "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-connect": "^0.11.2",
-    "grunt-contrib-copy": "^0.8.0",
-    "grunt-contrib-cssmin": "^0.13.0",
-    "grunt-contrib-jade": "^0.15.0",
-    "grunt-contrib-uglify": "^0.9.1",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-sass": "^1.0.0",
-    "http-server": "^0.8.0",
-    "jade": "^1.11.0",
-    "load-grunt-tasks": "^3.2.0",
-    "node-sass": "^3.2.0",
-    "nodemon": "^1.4.0"
+    "request": "^2.60.0"
   }
 }
