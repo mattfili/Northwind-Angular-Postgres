@@ -163,7 +163,7 @@ module.exports = function(grunt) {
     },
     nodemon: {
       dev: {
-        script: 'bin/server.js'
+        script: 'app.js'
       }
     },
     concurrent: {

@@ -13,14 +13,14 @@ var app = express();
  * Get port from environment and store in Express.
  */
 
- function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
+//  function getRandomInt(min, max) {
+//   return Math.floor(Math.random() * (max - min)) + min;
+// }
 
-var randomPort = getRandomInt(3000,65536);
+// var randomPort = getRandomInt(3000,65536);
 
-var port = normalizePort(process.env.PORT || 8080);
-app.use(express.static('public'));
+
+
 
 //Create server.
 var server = {
@@ -28,6 +28,8 @@ var server = {
       app.get('/', function (req, res) {
         res.sendFile('./public/index.html')
       })
+
+      var port = normalizePort(process.env.PORT || 8080);
 
       var server = app.listen(port, function () {
         var host = server.address().address;
