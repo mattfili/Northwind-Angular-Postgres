@@ -4,7 +4,7 @@ angular.module('capstone').directive('confirmPassword', function () {
   return {
     require: 'ngModel',
     link: function link(scope, elem, attrs, ctrl) {
-      var otherInput = elem.inheritedData("$formController")[attrs.confirmPassword];
+      var otherInput = elem.inheritedData('$formController')[attrs.confirmPassword];
 
       ctrl.$parsers.push(function (value) {
         if (value === otherInput.$viewValue) {

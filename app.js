@@ -63,25 +63,16 @@ var app = express();
 app.use(logger('common'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 app.use(session({ secret: 'keyboard cat' }));
-
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use(express.static(path.join(__dirname, 'public')));
 // local password validation middleware (need to declare strategy before the route)
 
-passport.serializeUser(function(user, done) {
-  done(null, user.id);
-});
-passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err, user) {
-    done(err, user);
-  });
-});
+
 passport.use(new LocalStrategy(
-  {email: 'email'}, 
+  {usernameField: 'email'}, 
     function(email, password, done) {
       User.findOne({ email: email }, function(err, user) {
         if (err) return done(err);
@@ -96,7 +87,16 @@ passport.use(new LocalStrategy(
 
 
 
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
 
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
 
 
 
@@ -116,8 +116,8 @@ app.use(function(req, res, next) {
 
 app.post('/api/login', passport.authenticate('local'), function (req, res) {
   res.cookie('user', JSON.stringify(req.user));
-  res.send(req.user);
-  console.log(JSON.stringify(req.user))
+  console.log(req.user)
+  res.redirect('/landing')
 })
 
 app.post('/api/signup', function(req, res, next) {

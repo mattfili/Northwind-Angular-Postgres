@@ -6,8 +6,8 @@ angular.module('capstone')
 
 	return {
 
-		login: function(user) {
-			return $http.post('/api/login', user)
+		login: function(user) { 
+			return $http.post('/api/login', JSON.stringify(user))
 				.success(function(data) {
 					$rootScope.currentUser = data;
 					$location.path('/');

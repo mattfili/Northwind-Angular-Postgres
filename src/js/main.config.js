@@ -37,9 +37,4 @@ angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAn
 		templateUrl: 'assets/signup.html',
 		controller: 'signupCtrl'
 	})
-	.state('add', {
-		url: '/signup/:id',
-		templateUrl: 'assets/signup.html',
-		controller: 'signupCtrl'
-	})
 })
