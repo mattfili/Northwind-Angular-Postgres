@@ -7,11 +7,11 @@ angular.module('capstone')
 	return {
 
 		login: function(user) { 
-			return $http.post('/api/login', JSON.stringify(user))
+			return $http.post('/api/login', user)
 				.success(function(data) {
 					$rootScope.currentUser = data;
-					$location.path('/');
 					console.log('logged in')
+					console.log(data)
 				})
 				.error(function() {
 					console.log('no dice on the login')

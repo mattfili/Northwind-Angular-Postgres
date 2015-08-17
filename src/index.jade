@@ -14,12 +14,12 @@ html(lang='en-US' ng-app="capstone")
             ul.dark.menu-bar
               li: a(ui-sref="#") 
               li: a(ui-sref="start.dash") Home
-              li: a(ui-sref="") Add
+              li: a(ui-sref="modal") Add
           .menu-group-right
             ul.dark.menu-bar
               li: a(ui-sref="login") Login
               li: a(ui-sref="signup") Sign up
-              li: a(href="javascript:void(0)" ng-click="loginCtrl.logout()") Logout
+              li: a(href="javascript:void(0)" method="get" ng-click="logout()") Logout
 
     ui-view.grid-frame
   //- vendor compiled scripts

@@ -15,14 +15,14 @@
           <ul class="dark menu-bar">
             <li><a ui-sref="#"> </a></li>
             <li><a ui-sref="start.dash">Home</a></li>
-            <li><a ui-sref="">Add</a></li>
+            <li><a ui-sref="#">Add</a></li>
           </ul>
         </div>
         <div class="menu-group-right">
           <ul class="dark menu-bar">
             <li><a ui-sref="login">Login</a></li>
             <li><a ui-sref="signup">Sign up</a></li>
-            <li><a href="javascript:void(0)" ng-click="loginCtrl.logout()">Logout</a></li>
+            <li><a href="javascript:void(0)" method="get" ng-click="logout()">Logout</a></li>
           </ul>
         </div>
       </div>

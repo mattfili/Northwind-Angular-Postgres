@@ -30,5 +30,8 @@
     "angular-cookies": "~1.4.4",
     "moment": "~2.10.6",
     "angular-messages": "~1.4.4"
+  },
+  "devDependencies": {
+    "ui-router-extras": "~0.0.14"
   }
 }
