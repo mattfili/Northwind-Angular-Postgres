@@ -1,0 +1,21 @@
+
+<div class="grid-block">
+  <div class="grid-container">
+    <h3 class="text-center">Login</h3>
+    <form method="post" ng-submit="login()" name="loginForm">
+      <label>Email
+        <input type="email" ng-model="email" placeholder="Enter your email" name="email" required="required"/>
+        <div ng-if="loginForm.email.$dirty" ng-messages="loginForm.email.$error" class="validation">
+          <div ng-message="required" class="message">Try again, your email address is invalid</div>
+        </div>
+      </label>
+      <label>Password
+        <input type="password" ng-model="password" placeholder="Password" name="password" required="required"/>
+        <div ng-if="loginForm.password.$dirty" ng-messages="loginForm.password.$error" class="validation">
+          <div ng-message="required" class="message">You masterful blackhat! We do need a password though...</div>
+        </div>
+        <button type="submit" ng-disabled="loginForm.$invalid" class="button-auth expand">Login</button>
+      </label>
+    </form>
+  </div>
+</div>

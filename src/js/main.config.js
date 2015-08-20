@@ -1,6 +1,5 @@
 angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAnimate', 'ngCookies', 'ngResource', 'ngMessages', 'mm.foundation'])
 
-
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 	$urlRouterProvider.when('', '/');
 	$urlRouterProvider.otherwise('/landing');
@@ -20,6 +19,15 @@ angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAn
 	    views: {
 	      'bDash': {
 	        templateUrl: 'assets/bDash.html'
+	      }
+	    }
+	})
+	
+	.state('start.dash.details', {
+		url: '/landing',
+	    views: {
+	      'urlDetails': {
+	        templateUrl: 'assets/details.html'
 	      }
 	    }
 	})
