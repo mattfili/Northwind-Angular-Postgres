@@ -1,22 +1,43 @@
-html(lang="en-US" ng-app="bundle")
-	head
-		meta(charset="utf-8")
-		meta(http-equiv="X-UA-Compatible", content="IE=edge")
-		meta(name="viewport", content="width=device-width, initial-scale=1")
-		title Bundle
-		link(rel="stylesheet" href="lib/build.css")
-		link(rel='stylesheet', href='assets/main.css')
-	body.container
-		nav.topheader.navbar.navbar-inverse.navbar-fixed-top.col-lg-12.row
-			.navbar-header.container-fluid
-				ul.nav.navbar-nav
-					li: a.navbar-link.navbar-right(ui-sref="home") Home
-					li: a.navbar-link.navbar-left(ui-sref='bundleDash.data') Bundle Dashboard
-					li: a.navbar-link.navbar-left(ui-sref='login') Login
-	ui-view
+doctype html
+html(lang='en-US' ng-app="capstone")
+  head
+    base(href="/")
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Bundler
+    link(rel='stylesheet', href='lib/build.css')
+    link(rel='stylesheet', href='lib/foundation-icons/foundation-icons.css')
+    link(rel='stylesheet', href='lib/foundation-apps/dist/css/foundation-apps.css')
+    link(rel='stylesheet', href='css/main.css')
 
-	script(src='lib/build.js')
-	script(src='js/main.js')
+  body
+    .menu-top
+      .menu-group.dark
+        .menu-group-left
+          ul.dark.menu-bar
+            li: a(ui-sref="start.dash") Home
+        .menu-group-right
+          ul.dark.menu-bar
+            li: a(ui-sref="login") Login
+            li: a(ui-sref="signup") Sign up
+            li: a(href="javascript:void(0)" method="get" ng-click="logout()") Logout
 
-	script(src='js/sectiondashcontroller.js')
-	script(src='js/bundledashcontroller.js')
+    ui-view.grid-frame
+  //- vendor compiled scripts
+
+  script(src='lib/build.js')
+  script(src='lib/foundation-apps/dist/js/foundation-apps-templates.js')
+  script(src='lib/foundation-apps/dist/js/foundation-apps.js')
+
+  //- front end scripts
+  script(src='js/main.config.js')
+  script(src='js/bDash.controller.js')
+  script(src='js/auth.controller.js')
+  script(src='js/confirmPassword.js')
+  script(src='js/auth.controller.js')
+  script(src='js/main.factory.js')
+
+
+
+
+
