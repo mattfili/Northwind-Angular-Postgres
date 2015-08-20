@@ -27,15 +27,6 @@ angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAn
 	    }
 	})
 
-	.state('start.dash.details', {
-		url: '/landing',
-	    views: {
-	      'urlDetails': {
-	        templateUrl: 'assets/details.html'
-	      }
-	    }
-	})
-
 
 	.state('login', {
 		url: '/login',

@@ -7,6 +7,10 @@
     <h4>Hello {{currentUser.email}}</h4>
   </div>
 </div>
-<div masonry="masonry">
-  <div class="masonry-brick"><img ng-src="http://amzwall.com/wp-content/uploads/2015/02/Space-Picture-Desktop.jpg"/></div>
+<div class="grid-block">
+  <div class="grid-content">
+    <div masonry="masonry">
+      <div ng-repeat="pics in pictures" class="masonry-brick"><img ng-src="{{pics}}"/></div>
+    </div>
+  </div>
 </div>

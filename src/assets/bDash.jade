@@ -4,10 +4,29 @@
 			i.fi-plus
 	.grid-content.align-center
 		h4 Hello {{currentUser.email}}
+.grid-block
+	.grid-content
+		div(masonry)
+			.masonry-brick(ng-repeat="pics in pictures")
+				img(ng-src="{{pics}}")
 
-div(masonry)
-	.masonry-brick
-		img(ng-src="http://amzwall.com/wp-content/uploads/2015/02/Space-Picture-Desktop.jpg")
 
 
 
+
+
+
+//- .grid-block
+//- 	.card
+//- 		img(ng-src="{{bundle.image}}")
+//- 		.userCheck(ng-if="currentUser")
+//- 			.subscribe(ng-show="!isSubscribed()")
+//- 				a(href="#" ng-click="subscribe")
+//- 					i.fi-star.size-24
+//- 			.subscribe(ng-show="isSubscribed()")
+//- 				button(ng-click="unsubscribe()")
+//- 					i.fi-minus.size-24
+//- 			.currentUser(ng-show="!currentUser")
+//- 				a(ui-sref="/login") Login to Subscribe
+//- 		.card-divider
+//- 			{{bundle.tite}}
