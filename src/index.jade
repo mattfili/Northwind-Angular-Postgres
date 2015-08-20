@@ -6,24 +6,29 @@ html(lang='en-US' ng-app="capstone")
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Bundler
     link(rel='stylesheet', href='lib/build.css')
+    link(rel='stylesheet', href='lib/foundation-icons/foundation-icons.css')
+    link(rel='stylesheet', href='lib/foundation-apps/dist/css/foundation-apps.css')
     link(rel='stylesheet', href='css/main.css')
+
   body
-      .menu-top(ng-controller="loginCtrl")
-        .menu-group.dark
-          .menu-group-left
-            ul.dark.menu-bar
-              li: a(ui-sref="#") 
-              li: a(ui-sref="start.dash") Home
-              li: a(ui-sref="modal") Add
-          .menu-group-right
-            ul.dark.menu-bar
-              li: a(ui-sref="login") Login
-              li: a(ui-sref="signup") Sign up
-              li: a(href="javascript:void(0)" method="get" ng-click="logout()") Logout
+    .menu-top
+      .menu-group.dark
+        .menu-group-left
+          ul.dark.menu-bar
+            li: a(ui-sref="start.dash") Home
+        .menu-group-right
+          ul.dark.menu-bar
+            li: a(ui-sref="login") Login
+            li: a(ui-sref="signup") Sign up
+            li: a(href="javascript:void(0)" method="get" ng-click="logout()") Logout
 
     ui-view.grid-frame
   //- vendor compiled scripts
+
   script(src='lib/build.js')
+  script(src='lib/foundation-apps/dist/js/foundation-apps-templates.js')
+  script(src='lib/foundation-apps/dist/js/foundation-apps.js')
+
   //- front end scripts
   script(src='js/main.config.js')
   script(src='js/bDash.controller.js')
@@ -31,6 +36,7 @@ html(lang='en-US' ng-app="capstone")
   script(src='js/confirmPassword.js')
   script(src='js/auth.controller.js')
   script(src='js/main.factory.js')
+
 
 
 

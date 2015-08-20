@@ -1,0 +1,11 @@
+.menu-top(ng-controller="loginCtrl")
+  .menu-group.dark
+    .menu-group-left
+      ul.dark.menu-bar
+        li: a(ui-sref="start.dash") Home
+        li: a(type="button" data-animation="am-fade-and-slide-top" data-placement="center" data-template-url="assets/addModal.html" bs-modal="modal") Add
+    .menu-group-right
+      ul.dark.menu-bar
+        li: a(ui-sref="login") Login
+        li: a(ui-sref="signup") Sign up
+        li: a(href="javascript:void(0)" method="get" ng-click="logout()") Logout

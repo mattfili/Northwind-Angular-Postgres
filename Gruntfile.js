@@ -53,9 +53,24 @@ module.exports = function(grunt) {
               '!**/*.jade',
               '!**/*.scss',
               '!**/*.css',
-              '!**/*.js',
+              '!**/*.js'
             ],
             dest: 'public/',
+            filter: 'isFile'
+          }
+        ]
+      },
+      dep: {
+        files: [
+          {
+            expand: true,
+            cwd: 'bower_components/',
+            src: [
+              'ui-bootstrap-modal/ui-bootstrap-custom-tpls-0.13.3.js',
+              'foundation-icons/**/*',
+              'foundation-apps/**/*'
+            ],
+            dest: 'public/lib',
             filter: 'isFile'
           }
         ]
@@ -188,6 +203,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build-dev', [
     'clean',
     'copy',
+    'copy:dep',
     'sass:dev',
     'babel:dev',
     'bower_concat',

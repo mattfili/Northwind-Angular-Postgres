@@ -13,6 +13,7 @@ angular.module('capstone')
 		Authorize.logout();
 	}
 
+
 })
 
 .controller('signupCtrl', function (Authorize, $scope) {

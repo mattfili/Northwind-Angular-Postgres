@@ -3,7 +3,6 @@ angular.module('capstone')
 .factory('Authorize', function($http, $location, $rootScope, $cookieStore) {
 	$rootScope.currentUser = $cookieStore.get('user')
 	$cookieStore.remove('user')
-
 	return {
 
 		login: function(user) { 
@@ -39,8 +38,28 @@ angular.module('capstone')
 					console.log('logged out')
 				});
 		}
-
-
 	}
+})
+
+.factory('Add', function($http, $location, $rootScope) {
+	return {
+
+		addBundle: function(data) { 
+			console.log(data)
+			return $http.post('/api/bundle', data)
+				.success(function(data) {
+					$rootScope.bundle = data; // CREATE A SERVICE TO SEND THIS TO
+					console.log('scraped')
+					console.log(data)
+				})
+				.error(function() {
+					console.log('no dice on the scrape')
+				});
+		}
+	}
+})
+
+.factory('Bundles', function($http, $location, $resource) {
+	return $resource('/api/bundles/:_id')
 
 })

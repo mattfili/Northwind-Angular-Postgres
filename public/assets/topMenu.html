@@ -1,0 +1,18 @@
+
+<div ng-controller="loginCtrl" class="menu-top">
+  <div class="menu-group dark">
+    <div class="menu-group-left">
+      <ul class="dark menu-bar">
+        <li><a ui-sref="start.dash">Home</a></li>
+        <li><a type="button" data-animation="am-fade-and-slide-top" data-placement="center" data-template-url="assets/addModal.html" bs-modal="modal">Add</a></li>
+      </ul>
+    </div>
+    <div class="menu-group-right">
+      <ul class="dark menu-bar">
+        <li><a ui-sref="login">Login</a></li>
+        <li><a ui-sref="signup">Sign up</a></li>
+        <li><a href="javascript:void(0)" method="get" ng-click="logout()">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

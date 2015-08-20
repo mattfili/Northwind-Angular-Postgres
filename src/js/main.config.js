@@ -1,4 +1,4 @@
-angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAnimate', 'ngCookies', 'ngResource', 'ngMessages'])
+angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAnimate', 'ngCookies', 'ngResource', 'ngMessages', 'mm.foundation'])
 
 
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -8,25 +8,23 @@ angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAn
 	$locationProvider.html5Mode(true);
 
 	$stateProvider
+
 	.state('start', {
 	    abstract: true,
 	    templateUrl: 'assets/landing.html',
+	   	controller: 'bDashController',
+	    controllerAs: 'bCtrl'
   	})
 	.state('start.dash', {
 		url: '/landing',
 	    views: {
 	      'bDash': {
-	        templateUrl: 'assets/bDash.html',
-	        controller: 'bDashController',
-	        controllerAs: 'bCtrl'
-	      },
-	      'navbar': {
-	        templateUrl: 'assets/navbar.html',
-	        controller: 'bDashController',
-	        controllerAs: 'bCtrl'
+	        templateUrl: 'assets/bDash.html'
 	      }
 	    }
 	})
+
+
 	.state('login', {
 		url: '/login',
 		templateUrl: 'assets/login.html',
@@ -37,4 +35,8 @@ angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAn
 		templateUrl: 'assets/signup.html',
 		controller: 'signupCtrl'
 	})
+
+
 })
+
+

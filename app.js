@@ -14,6 +14,8 @@ var app = express();
   
 // ROUTE REQUIRES
 var userAuthentication = require('./routes/users')
+var bundle = require('./routes/bundle')
+var scraper = require('./routes/scraper')
 
 
 //DB CONFIG
@@ -46,6 +48,8 @@ app.use(function(req, res, next) {
 
 // PRE-LOGIN ENDPOINTS
 app.use('/api', userAuthentication)
+app.use('/api', scraper)
+app.use('/api', bundle)
 
 
 // POST LOGIN ENDPOINTS
