@@ -1,4 +1,4 @@
-angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAnimate', 'ngCookies', 'ngResource', 'ngMessages', 'mm.foundation'])
+angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAnimate', 'ngCookies', 'ngResource', 'ngMessages', 'mm.foundation','wu.masonry'])
 
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 	$urlRouterProvider.when('', '/');
@@ -19,10 +19,14 @@ angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAn
 	    views: {
 	      'bDash': {
 	        templateUrl: 'assets/bDash.html'
+	      },
+	      'urlDetails': {
+	        templateUrl: 'assets/details.html'
 	      }
+
 	    }
 	})
-	
+
 	.state('start.dash.details', {
 		url: '/landing',
 	    views: {

@@ -6898,3 +6898,6 @@ blockquote p {
 .reveal-modal-bg.in {
   filter: alpha(opacity=50);
   opacity: .5; }
+
+.masonry-brick {
+  border: 1px solid red; }
