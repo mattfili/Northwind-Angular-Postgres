@@ -1,11 +1,26 @@
-.grid-block
-	.grid-content
-		div(masonry)
-			.masonry-brick(ng-repeat="pics in pictures")
-				img(ng-src="{{pics}}")
+.grid-content
+	div(masonry)
+		.masonry-brick(ng-repeat="bundle in bundles")
+			.card
+				img(ng-src="{{bundle.ogImg}}")
+				.card-divider
+					h5 {{bundle.title}}
+					.card-section
+						p {{bundle.description}}
+					.card-hidden
+						.card-icons
+							a(href="{{bundle.url}}")
+								i.fi-.fi-arrow-right.size-30
+							a(href="")
+								i.fi-bookmark.size-30
+							a(href="#" )
+								i.fi-link.size-30
+							a(method="get" ng-click="delete(bundle._id)")
+								i.fi-trash.size-30
+							a(href="#")
+								i.fi-widget.size-30
 
 
-					
 
 
 

@@ -1,3 +1,61 @@
+$paragraph-font-family: inherit;
+$paragraph-font-size: .9rem;
+$paragraph-line-height: 1.1;
+$paragraph-margin-bottom: rem-calc(10);
+$paragraph-aside-font-size: rem-calc(9);
+$paragraph-aside-line-height: 1.35;
+$paragraph-aside-font-style: italic;
+
+
+
 .masonry-brick {
-border: 1px solid red; 
+	border: 1px solid #D8D2D2;
+	max-width: 300px;
+	padding: 2px;
+
+	.card {
+		border: none;
+		margin: 0;
+	}
+
+	.card-divider {
+		padding: 10px;
+	}
+
+	.card-section {
+		padding: 0;
+	}
+
+	p {
+		font-size: $paragraph-font-size;
+		margin-bottom: 5px;
+	}
+
+	.card-hidden {
+		width: inherit;
+		padding: 10px 
+	}
+
+	.card-icons {
+
+
+		a {
+			padding: 0 10px;
+
+			i {
+				color: grey;
+
+	        }
+		}
+	}
+
+	.card-hidden .card-icons {
+		display: none;
+	}
+
+	.card-hidden:hover .card-icons {
+		display: inline;
+
+	}
 }
+

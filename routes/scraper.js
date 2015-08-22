@@ -50,7 +50,7 @@ router.post('/bundle', function (req, res, next) {
 				if ($('meta[property="og:image"]').attr("content")) {
 					json.ogImg = $('meta[property="og:image"]').attr("content")
 				} else {
-					json.ogImg = ''
+					json.ogImg = 'http://lorempixel.com/500/500'
 				}
 
 				// scrape for main site name
@@ -64,13 +64,14 @@ router.post('/bundle', function (req, res, next) {
 				if ($('meta[property="og:description"]').attr("content")) {
 					json.ogDescription = $('meta[property="og:description"]').attr("content")
 				} else {
+					// get random image 
 					json.ogDescription = ''
 				}
 
 			var bundle = new Bundle({
 				_id: new ObjectID(),
 				userId: userId,
-				title: json.ogImg,
+				title: json.ogTitle,
 				url: basicBundleData.url,
 				siteName: json.ogSiteName,
 				siteIcon: json.siteIcon,

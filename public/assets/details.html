@@ -1,8 +1,18 @@
 
-<div class="grid-block">
-  <div class="grid-content">
-    <div masonry="masonry">
-      <div ng-repeat="pics in pictures" class="masonry-brick"><img ng-src="{{pics}}"/></div>
+<div class="grid-content">
+  <div masonry="masonry">
+    <div ng-repeat="bundle in bundles" class="masonry-brick">
+      <div class="card"><img ng-src="{{bundle.ogImg}}"/>
+        <div class="card-divider">
+          <h5>{{bundle.title}}</h5>
+          <div class="card-section">
+            <p>{{bundle.description}}</p>
+          </div>
+          <div class="card-hidden">
+            <div class="card-icons"><a href="{{bundle.url}}"><i class="fi- fi-arrow-right size-30"></i></a><a href=""><i class="fi-bookmark size-30"></i></a><a href="#"><i class="fi-link size-30"></i></a><a method="get" ng-click="delete(bundle._id)"><i class="fi-trash size-30"></i></a><a href="#"><i class="fi-widget size-30"></i></a></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

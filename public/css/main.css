@@ -6871,6 +6871,10 @@ blockquote p {
       fill: #fff;
       stroke: #fff; }
 
+.reveal-modal {
+  position: fixed;
+  top: 150px !important; }
+
 .fade {
   opacity: 0;
   -webkit-transition: opacity 0.15s linear;
@@ -6900,4 +6904,27 @@ blockquote p {
   opacity: .5; }
 
 .masonry-brick {
-  border: 1px solid red; }
+  border: 1px solid #D8D2D2;
+  max-width: 300px;
+  padding: 2px; }
+  .masonry-brick .card {
+    border: none;
+    margin: 0; }
+  .masonry-brick .card-divider {
+    padding: 10px; }
+  .masonry-brick .card-section {
+    padding: 0; }
+  .masonry-brick p {
+    font-size: 0.9rem;
+    margin-bottom: 5px; }
+  .masonry-brick .card-hidden {
+    width: inherit;
+    padding: 10px; }
+  .masonry-brick .card-icons a {
+    padding: 0 10px; }
+    .masonry-brick .card-icons a i {
+      color: grey; }
+  .masonry-brick .card-hidden .card-icons {
+    display: none; }
+  .masonry-brick .card-hidden:hover .card-icons {
+    display: inline; }

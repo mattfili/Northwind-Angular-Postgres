@@ -23,10 +23,15 @@ angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAn
 	      'urlDetails': {
 	        templateUrl: 'assets/details.html'
 	      }
-
 	    }
 	})
 
+	.state('add', {
+		url: '/add',
+		templateUrl: 'assets/addModal.html',
+	   	controller: 'bDashController',
+	    controllerAs: 'bCtrl'
+	})
 
 	.state('login', {
 		url: '/login',

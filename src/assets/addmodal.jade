@@ -1,13 +1,14 @@
-h3.text-center Add Bundle
-form(method="post" ng-submit="submit()" name="addBundleForm")
-	label Title
-		input(type="text", ng-model="information.title" placeholder="Enter bundle title" name="title" required)
-		.validation(ng-if="loginForm.title.$dirty" ng-messages="loginForm.title.$error")
-			.message(ng-message="required") Try again, a title is required
-	label URL
-		input(type="url", ng-model="information.url" placeholder="URL" name= "url" required)
-		.validation(ng-if="loginForm.url.$dirty" ng-messages="loginForm.url.$error")
-			.message(ng-message="required") We do need a title though
+.grid-container.centered
+	h3.text-center Add Bundle
+	form(method="post" ng-submit="submit()" name="addBundleForm")
+		label Title
+			input(type="text", ng-model="title" placeholder="Enter bundle title" name="title" required)
+			.validation(ng-if="loginForm.title.$dirty" ng-messages="loginForm.title.$error")
+				.message(ng-message="required") Try again, a title is required
+		label URL
+			input(type="url", ng-model="url" placeholder="URL" name= "url" required)
+			.validation(ng-if="loginForm.url.$dirty" ng-messages="loginForm.url.$error")
+				.message(ng-message="required") We do need a title though
 
-		button.button-auth.expand(type="submit" ng-disabled="addBundleForm.$invalid") Submit
-		a(href="#" ng-click="cancel()") Close
+			button.button-auth.expand(type="submit" ng-disabled="addBundleForm.$invalid") Submit
+			a(href="#" ng-click="cancel()") Close
