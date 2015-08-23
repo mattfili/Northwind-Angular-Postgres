@@ -29,8 +29,8 @@ angular.module('capstone', ['ui.router','foundation', 'foundation.common', 'ngAn
 	.state('add', {
 		url: '/add',
 		templateUrl: 'assets/addModal.html',
-	   	controller: 'bDashController',
-	    controllerAs: 'bCtrl'
+	   	controller: 'addFormController',
+	    controllerAs: 'addCtrl'
 	})
 
 	.state('login', {

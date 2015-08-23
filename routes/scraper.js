@@ -20,7 +20,7 @@ router.post('/bundle', function (req, res, next) {
 
 	basicBundleData.url = req.body.url
 	userId = req.body.userId
-	console.log(userId)
+	userTitle = req.body.title
 
 	async.waterfall([
 
@@ -50,14 +50,14 @@ router.post('/bundle', function (req, res, next) {
 				if ($('meta[property="og:image"]').attr("content")) {
 					json.ogImg = $('meta[property="og:image"]').attr("content")
 				} else {
-					json.ogImg = 'http://lorempixel.com/500/500'
+					json.ogImg = 'http://lorempixel.com/500/500/abstract/Rando-Image'
 				}
 
 				// scrape for main site name
 				if ($('meta[property="og:site_name"]').attr("content")) {
 					json.ogSiteName = $('meta[property="og:site_name"]').attr("content")
 				} else {
-					json.ogSiteName = $('meta[name="description"]').attr("content")
+					json.ogSiteName = $('meta[name="twitter:domain"]').attr("content")
 				}
 
 				// scrape for page description
@@ -65,12 +65,13 @@ router.post('/bundle', function (req, res, next) {
 					json.ogDescription = $('meta[property="og:description"]').attr("content")
 				} else {
 					// get random image 
-					json.ogDescription = ''
+					json.ogDescription = $('meta[name="description"]').attr("content")
 				}
 
 			var bundle = new Bundle({
 				_id: new ObjectID(),
 				userId: userId,
+				userTitle: userTitle,
 				title: json.ogTitle,
 				url: basicBundleData.url,
 				siteName: json.ogSiteName,

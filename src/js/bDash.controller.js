@@ -1,24 +1,43 @@
 angular.module('capstone')
 
-.controller('bDashController', function ($scope, Bundles, $modal, Add, $rootScope, BundlesD) {
+.controller('bDashController', function ($scope, Bundles, $modal, Add, $rootScope) {
 
 	(function() {
-		$scope.bundles = Bundles.query()
+		var getAll = new Bundles.getAll()
+		$scope.bundles = getAll.query()
 	})();
 
-	$scope.delete = function (bId) {
-		BundlesD.delete({id: bId})
+	$scope.delete = function (id) {
+		var deleteSelection = new Bundles.deleteOne()
+		deleteSelection.delete({id: id}, function(){
+			console.log('Deleted: ' + id)
+			var getAll = new Bundles.getAll()
+			$scope.bundles = getAll.query()
+		})
 	}
 
+})
+
+.controller('addFormController', function ($scope, Add) {
 
 	$scope.submit = function() {
 		Add.addBundle({
 				title: $scope.title,
 				url: $scope.url
 				// userId: $rootScope.currentUser._id *** ADD WHEN CURRENTUSER IS VALIDATED
-			});
+			}).then(function() {
+				$scope.addBundleForm = null;
+				$scope.title = null;
+				$scope.url = null;
+			})
 	}
 
+})
+
+.controller('detailsCtrl', function ($scope, Bundles, $modal, Add, $rootScope) {
+
+
+})
 
 
 
@@ -36,15 +55,6 @@ angular.module('capstone')
 // 			});
 // 		})
 // 	}
-
-
-})
-
-
-.controller('detailsCtrl', function ($scope, Bundles, $modal, Add, $rootScope) {
-
-
-})
 
 // .controller('modalInstance', function ($scope, $modal, Add, $modalInstance) {
 

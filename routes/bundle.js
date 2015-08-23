@@ -7,7 +7,6 @@ var Bundle = require('../model/mongoose.Bundle')
 // ROUTES
 
 router.get('/bundle', function (req, res, next) {
-	console.log(req.params)
 	var query = Bundle.find();
 	if (req.query.tags) {
 		query.where({tags: req.query.tags})
@@ -20,10 +19,8 @@ router.get('/bundle', function (req, res, next) {
 	})
 })
 
-router.get('/bundle/:id', function(req, res, next) {
-	console.log(req.params)
-	console.log(req.params.id)
-	Bundle.findById(req.params.id, function(err) {
+router.delete('/bundle/:id', function(req, res, next) {
+	Bundle.remove({_id: req.params.id}, function(err) {
 		if (err) return next(err);
 		res.send(200)
 	})

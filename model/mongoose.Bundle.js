@@ -7,6 +7,7 @@ var bundle = require('../routes/bundle')
 
 var bundleSchema = new mongoose.Schema({
 	_id: String,
+	userTitle: String,
 	userId: String,
 	title: String,
 	url: String,

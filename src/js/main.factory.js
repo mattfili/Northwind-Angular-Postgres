@@ -60,11 +60,15 @@ angular.module('capstone')
 })
 
 .factory('Bundles', function($http, $location, $resource) {
-		return $resource('/api/bundle/:id')
+		return {
+			getAll: function() {
+				return $resource('/api/bundle')
+			},
+
+
+			deleteOne: function() {
+				return $resource('/api/bundle/:id', {id: '@id'})
+			}
+		}
 })
 
-.factory('BundlesD', function($http, $location, $resource) {
-		return $resource('/api/bundle/:id', {}, {
-		delete: {method: 'DELETE', params: {id: '@id'}}
-		})
-})
