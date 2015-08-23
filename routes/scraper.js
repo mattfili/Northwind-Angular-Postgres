@@ -13,19 +13,19 @@ var ObjectID = require('mongodb').ObjectID
 var Bundle = require('../model/mongoose.Bundle')
 
 router.post('/bundle', function (req, res, next) {
-	var basicBundleData = {
-		title: '',
-		url: ''
-	}
 
-	basicBundleData.url = req.body.url
+// USER SUMBITTED INFORMATION
+	url = req.body.url
 	userId = req.body.userId
 	userTitle = req.body.title
+	formTags = req.body.tags
+
+// URL SCRAPED INFORMATION
 
 	async.waterfall([
 
 		function(callback) {
-			request.get(basicBundleData.url, function (error, response, html) {
+			request.get(url, function (error, response, html) {
 				if (error) return next(error);
 
 				var $ = cheerio.load(html, {
@@ -38,7 +38,7 @@ router.post('/bundle', function (req, res, next) {
 				var json = { siteIcon: '', ogTitle : '', ogImg : '', ogSiteName: '', ogDescription: ''};
 				
 				// scrape for siteIcon
-				json.siteIcon = 'http://www.google.com/s2/favicons?domain=' + basicBundleData.url
+				json.siteIcon = 'http://www.google.com/s2/favicons?domain=' + url
 
 				// scrape for page title
 				if ($('meta[property="og:title"]').attr("content")) {
@@ -73,11 +73,15 @@ router.post('/bundle', function (req, res, next) {
 				userId: userId,
 				userTitle: userTitle,
 				title: json.ogTitle,
-				url: basicBundleData.url,
+				url: url,
 				siteName: json.ogSiteName,
 				siteIcon: json.siteIcon,
 				ogImg: json.ogImg,
-				description: json.ogDescription
+				description: json.ogDescription,
+				tags: []
+			})
+			_.forEach(formTags, function(tag) {
+				bundle.tags.push(tag.text)
 			})
 
 			callback(error, bundle)

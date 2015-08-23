@@ -45,17 +45,31 @@ angular.module('capstone')
 	return {
 
 		addBundle: function(data) { 
+			console.log('DATA COMING IN FROM ADD FORM')
 			console.log(data)
 			return $http.post('/api/bundle', data)
 				.success(function(data) {
-					$rootScope.bundle = data; // CREATE A SERVICE TO SEND THIS TO
-					console.log('scraped')
+					console.log('DATA RETURNED BY ENDPOINT')
 					console.log(data)
 				})
 				.error(function() {
 					console.log('no dice on the scrape')
 				});
+		},
+
+		addStory: function(data) { 
+			console.log('DATA COMING IN FROM ADD STORY FORM')
+			console.log(data)
+			return $http.post('/api/story', data)
+				.success(function(data) {
+					console.log('DATA RETURNED BY ENDPOINT')
+					console.log(data)
+				})
+				.error(function() {
+					console.log('Error, story not added')
+				});
 		}
+
 	}
 })
 

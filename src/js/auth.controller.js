@@ -1,17 +1,16 @@
 angular.module('capstone')
 
-.controller('loginCtrl', function (Authorize, $scope) {
+.controller('loginCtrl', function (Authorize, $scope, $state) {
 
 	$scope.login = function () {
 		Authorize.login({
 			email: $scope.email,
 			password: $scope.password
-		});
+		}).then(function() {
+			$state.go('start.dash')
+		})
 	};
 
-	$scope.logout= function () {
-		Authorize.logout();
-	}
 
 
 })

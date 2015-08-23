@@ -1,19 +1,48 @@
 
 <div class="grid-container centered">
-  <h3 class="text-center">Add Bundle</h3>
-  <form method="post" ng-submit="submit()" name="addBundleForm">
-    <label>Title
-      <input type="text" ng-model="title" placeholder="Enter bundle title" name="title" required="required"/>
-      <div ng-if="loginForm.title.$dirty" ng-messages="loginForm.title.$error" class="validation">
-        <div ng-message="required" class="message">Try again, a title is required</div>
+  <ul> <a ng-click="activeTab = 'Story'" ng-class="{'tabActive': activeTab === 'Story'}" class="tab">Story</a><a ng-click="activeTab = 'Bundle'" ng-class="{'tabActive': activeTab === 'Bundle'}" class="tab">Bundle</a>
+    <div ng-switch="activeTab" class="switch-container_animation">
+      <!--ADD STORY-->
+      <div ng-switch-when="Story" class="switch-content_animation">
+        <h4 class="text-center">Add Story</h4>
+        <form method="post" ng-submit="storySubmit()" name="addStoryForm">
+          <label>Story
+            <input type="text" ng-model="$parent.storyTitle" placeholder="Enter story title" name="storyTitle" required="required"/>
+            <div ng-if="addStoryForm.storyTitle.$dirty" ng-messages="addStoryForm.storyTitle.$error" class="validation">
+              <div ng-message="required" class="message">Try again, a story title is required</div>
+            </div>
+          </label>
+          <label>Description
+            <input type="text" ng-model="$parent.storyDescription" placeholder="Description" name="storyDescription"/>
+          </label>
+          <label>Tags
+            <tags-input add-on-space="true" ng-model="storyTags" placeholder="Add a tag" name="storyTag"></tags-input>
+          </label>
+          <button type="submit" ng-disabled="addStoryForm.$invalid" class="button-auth expand">Submit</button>
+        </form>
       </div>
-    </label>
-    <label>URL
-      <input type="url" ng-model="url" placeholder="URL" name="url" required="required"/>
-      <div ng-if="loginForm.url.$dirty" ng-messages="loginForm.url.$error" class="validation">
-        <div ng-message="required" class="message">We do need a title though</div>
+      <!--ADD BUNDLE-->
+      <div ng-switch-when="Bundle" class="switch-content_animation">
+        <h4 class="text-center">Add Bundle</h4>
+        <form method="post" ng-submit="bundleSubmit()" name="addBundleForm">
+          <label>Title
+            <input type="text" ng-model="$parent.title" placeholder="Enter bundle title" name="title" required="required"/>
+            <div ng-if="loginForm.title.$dirty" ng-messages="loginForm.title.$error" class="validation">
+              <div ng-message="required" class="message">Try again, a title is required</div>
+            </div>
+          </label>
+          <label>URL
+            <input type="url" ng-model="$parent.url" placeholder="URL" name="url" required="required"/>
+            <div ng-if="loginForm.url.$dirty" ng-messages="loginForm.url.$error" class="validation">
+              <div ng-message="required" class="message">We do need a url though</div>
+            </div>
+          </label>
+          <label>Tags
+            <tags-input add-on-space="true" ng-model="tags" placeholder="Add a tag" name="bundleag"></tags-input>
+          </label>
+          <button type="submit" ng-disabled="addBundleForm.$invalid" class="button-auth expand">Submit</button>
+        </form>
       </div>
-      <button type="submit" ng-disabled="addBundleForm.$invalid" class="button-auth expand">Submit</button><a href="#" ng-click="cancel()">Close</a>
-    </label>
-  </form>
+    </div>
+  </ul>
 </div>

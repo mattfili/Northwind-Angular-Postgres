@@ -49,7 +49,7 @@ router.post('/signup', function(req, res, next) {
   });
 });
 
-router.get('/logout', function(req, res, next) {
+router.post('/logout', function(req, res, next) {
 	req.session.destroy()
   	res.sendStatus(200);
 });

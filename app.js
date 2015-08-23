@@ -16,6 +16,7 @@ var app = express();
 var userAuthentication = require('./routes/users')
 var bundle = require('./routes/bundle')
 var scraper = require('./routes/scraper')
+var story = require('./routes/story')
 
 
 //DB CONFIG
@@ -50,6 +51,7 @@ app.use(function(req, res, next) {
 app.use('/api', userAuthentication)
 app.use('/api', scraper)
 app.use('/api', bundle)
+app.use('/api', story)
 
 
 // POST LOGIN ENDPOINTS
@@ -93,7 +95,6 @@ if (app.get('env') === 'production') {
 
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.send(err)
 });
 
 // SERVER CONNECT

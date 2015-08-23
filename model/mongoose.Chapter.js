@@ -1,18 +1,21 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema;
 
-var sectionSchema = new mongoose.Schema({
+var chapterSchema = new mongoose.Schema({
 	_id: Number,
 	title: String,
 	tags: [String],
 	rating: Number,
 	ratingCount: Number,
-	description: String
+	description: String,
+	bundles: [{
+		type: mongoose.Schema.Types.ObjectId, ref: 'Bundle'
+	}]
 })
 
-var Section = mongoose.model('Section', sectionSchema)
+var Chapter = mongoose.model('Chapter', chapterSchema, 'Chapter')
 
-module.exports = Section
+module.exports = Chapter
 
 	// content: [{
 	// 	contentCount: Number,

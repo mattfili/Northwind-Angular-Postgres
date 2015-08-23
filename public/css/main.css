@@ -6929,3 +6929,9 @@ blockquote p {
     display: none; }
   .masonry-brick .card-hidden:hover .card-icons {
     display: inline; }
+
+.tab {
+  padding: 2px 20px; }
+
+.tab.tabActive {
+  border-bottom: 3px solid black; }

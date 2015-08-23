@@ -20,9 +20,10 @@ html(lang='en-US' ng-app="capstone")
 
         .menu-group-right
           ul.dark.menu-bar
-            li: a(ui-sref="login") Login
-            li: a(ui-sref="signup") Sign up
-            li: a(href="javascript:void(0)" method="get" ng-click="logout()") Logout
+            li(ng-if="!currentUser"): a(ui-sref="login") Login
+            li(ng-if="currentUser"): a(method="post" ng-click="logout()") Logout
+            li(ng-if="!currentUser"): a(ui-sref="signup") Sign up
+
 
 
     ui-view.grid-frame

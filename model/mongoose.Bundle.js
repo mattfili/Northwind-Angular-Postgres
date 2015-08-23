@@ -20,7 +20,7 @@ var bundleSchema = new mongoose.Schema({
 	ratingCount: Number
 })
 
-var Bundle = mongoose.model('Bundle', bundleSchema)
+var Bundle = mongoose.model('Bundle', bundleSchema, 'Bundle')
 
 module.exports = Bundle
 
