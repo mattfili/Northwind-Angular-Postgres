@@ -3,8 +3,9 @@
 module.exports = function(sequelize, DataTypes) {
   var territories = sequelize.define('territories', { 
     TerritoryID: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      identifier: {type: DataTypes.INTEGER, primaryKey: true}
     },
     TerritoryDescription: {
       type: DataTypes.TEXT,
@@ -12,7 +13,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     RegionID: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'region',
+        key: 'RegionID'
+      }
     }
   });
   return territories;

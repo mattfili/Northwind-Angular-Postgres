@@ -1,15 +1,20 @@
 "use strict"
-"use strict"
 module.exports = function(sequelize, DataTypes) {
   var employeeterritories = sequelize.define('employeeterritories', { 
     EmployeeID: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      identifier: {type: DataTypes.INTEGER, primaryKey: true}
-    },
+      references: {
+        model: 'employees',
+        key: 'EmployeesID'
+      }
     TerritoryID: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'territories',
+        key: 'TerritoryID'
+      }
     }
   });
   return employeeterritories;

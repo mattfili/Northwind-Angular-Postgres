@@ -9,7 +9,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     CustomerTypeID: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'customerdemographics',
+        key: 'CustomerTypeID'
+      }
     }
   });
   return customercustomerdemo;

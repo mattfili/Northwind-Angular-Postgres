@@ -9,7 +9,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     ProductID: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'products',
+        key: 'ProductID'
+      }
     },
     UnitPrice: {
       type: DataTypes.REAL,

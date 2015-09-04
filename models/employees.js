@@ -69,7 +69,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     ReportsTo: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      references: {
+        model: 'employees',
+        key: 'EmployeeID'
+      }
     },
     PhotoPath: {
       type: DataTypes.STRING,
