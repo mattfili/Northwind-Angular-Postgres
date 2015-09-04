@@ -6883,3 +6883,56 @@ blockquote p {
 
 .tab.tabActive {
   border-bottom: 3px solid black; }
+
+html {
+  min-width: 1063px;
+  min-height: 700px; }
+
+.topheader {
+  width: 125% ul li;
+    width-text-decoration: none;
+    width-list-style: none; }
+  .topheader ul li a:hover {
+    color: dark-gray; }
+  .topheader ul li:nth-child(-n+2) a {
+    float: right; }
+
+.app {
+  width: 100%;
+  height: 100%; }
+
+.newbundleform {
+  padding: 10px; }
+
+.bundledashboard {
+  margin-top: 60px;
+  width: 100%; }
+
+.newBundle {
+  margin-left: -31px; }
+
+.bundleRepeater {
+  text-decoration: none;
+  max-height: 680px;
+  margin-left: -31px; }
+
+.panel-group {
+  width: 350px;
+  min-width: 350px; }
+
+.panelRepeater {
+  text-decoration: none;
+  margin: 10px 5px 0px 0px; }
+
+.sectiondashboard {
+  margin-top: 60px;
+  width: 100%; }
+
+.list-group a {
+  text-decoration: none; }
+
+.newContent input {
+  height: 10px; }
+
+#datbutton {
+  height: 43px; }

@@ -14,6 +14,11 @@ angular.module('Northwind', ['ui.router','foundation', 'foundation.common', 'ngA
 	   	controller: 'dashController',
 	    controllerAs: 'Ctrl'
   	})
+
+  	// start.dash is the landing page of our app, it currently has two views 
+  	// (triggered by the ui-views of the respective view name on landing)
+  	// as we want to create new data abstractions we can add views or other child states of 
+  	// start (e.g., start.products) 
   	
 	.state('start.dash', {
 		url: '/landing',
@@ -29,7 +34,7 @@ angular.module('Northwind', ['ui.router','foundation', 'foundation.common', 'ngA
 
 	// .state('add', {
 	// 	url: '/add',
-	// 	templateUrl: 'assets/addModal.html',
+	// 	templateUrl: 'assets/addform.html',
 	//    	controller: 'addFormController',
 	//     controllerAs: 'addCtrl'
 	// })
