@@ -1,0 +1,18 @@
+.grid-content.align-center
+	table
+		tbody
+			tr
+				th Product Name
+				th Quantity Per Unit
+				th Unit Price
+				th Units In Stock
+			tr(ng-repeat="products in Ctrl.products")
+				td {{products.ProductName}}
+				td {{products.QuantityPerUnit}}
+				td {{products.UnitPrice}}
+				td {{products.UnitsInStock}}
+
+
+
+
+

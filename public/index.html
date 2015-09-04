@@ -1,28 +1,21 @@
 <!DOCTYPE html>
-<html lang="en-US" ng-app="capstone">
+<html lang="en-US" ng-app="Northwind">
   <head>
     <base href="/">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bundler</title>
+    <title>Northwind</title>
     <link rel="stylesheet" href="lib/build.css">
     <link rel="stylesheet" href="lib/foundation-icons/foundation-icons.css">
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <div ng-controller="detailsCtrl" class="menu-top">
+    <div class="menu-top">
       <div class="menu-group dark">
         <div class="menu-group-left">
           <ul class="dark menu-bar">
             <li><a ui-sref="start.dash">Home</a></li>
             <li><a ui-sref="add">Add</a></li>
-          </ul>
-        </div>
-        <div class="menu-group-right">
-          <ul class="dark menu-bar">
-            <li ng-if="!currentUser"><a ui-sref="login">Login</a></li>
-            <li ng-if="currentUser"><a method="post" ng-click="logout()">Logout</a></li>
-            <li ng-if="!currentUser"><a ui-sref="signup">Sign up</a></li>
           </ul>
         </div>
       </div>
@@ -31,9 +24,6 @@
   </body>
   <script src="lib/build.js"></script>
   <script src="js/main.config.js"></script>
-  <script src="js/bDash.controller.js"></script>
-  <script src="js/auth.controller.js"></script>
-  <script src="js/confirmPassword.js"></script>
-  <script src="js/auth.controller.js"></script>
+  <script src="js/dashboard.controller.js"></script>
   <script src="js/main.factory.js"></script>
 </html>

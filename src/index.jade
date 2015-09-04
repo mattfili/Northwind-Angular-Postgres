@@ -1,43 +1,30 @@
 doctype html
-html(lang='en-US' ng-app="capstone")
+html(lang='en-US' ng-app="Northwind")
   head
     base(href="/")
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    title Bundler
+    title Northwind
 
     link(rel='stylesheet', href='lib/build.css')
     link(rel="stylesheet" href="lib/foundation-icons/foundation-icons.css")
     link(rel='stylesheet', href='css/main.css')
 
   body
-    .menu-top(ng-controller="detailsCtrl")
+    .menu-top
       .menu-group.dark
         .menu-group-left
           ul.dark.menu-bar
             li: a(ui-sref="start.dash") Home
             li: a(ui-sref="add") Add
 
-        .menu-group-right
-          ul.dark.menu-bar
-            li(ng-if="!currentUser"): a(ui-sref="login") Login
-            li(ng-if="currentUser"): a(method="post" ng-click="logout()") Logout
-            li(ng-if="!currentUser"): a(ui-sref="signup") Sign up
-
-
 
     ui-view.grid-frame
-  //- vendor compiled scripts
+
   script(src='lib/build.js')
-  //- front end scripts
   script(src='js/main.config.js')
-  script(src='js/bDash.controller.js')
-  script(src='js/auth.controller.js')
-  script(src='js/confirmPassword.js')
-  script(src='js/auth.controller.js')
+  script(src='js/dashboard.controller.js')
   script(src='js/main.factory.js')
-
-
 
 
 

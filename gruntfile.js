@@ -38,10 +38,7 @@ module.exports = function(grunt) {
     bower_concat: {
       main: {
         dest: 'public/lib/build.js',
-        cssDest: 'public/lib/build.css',
-        dependencies: {
-          'angular-masonry': ['jquery', 'angular', 'foundation', 'angular-ui-router', 'angular-resource', 'angular-cookies', 'angular-foundation', 'angular-messages', 'jquery-bridget','get-style-property', 'get-size', 'eventie', 'doc-ready', 'eventEmitter', 'matches-selector', 'outlayer', 'imagesloaded']
-        }
+        cssDest: 'public/lib/build.css'
       }
     },
     clean: ['public'],

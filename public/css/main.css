@@ -925,7 +925,7 @@ a, [ui-sref], [zf-open], [zf-close], [zf-toggle] {
         margin-left: 0.8rem;
         float: none; }
 
-.button, .button-group > li > a, .button-group > li > label, .button-group > li > button, .button-auth {
+.button, .button-group > li > a, .button-group > li > label, .button-group > li > button {
   display: inline-block;
   border: 0;
   text-align: center;
@@ -6850,58 +6850,6 @@ blockquote p {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   padding: 0 !important; }
-
-.button-auth {
-  font-size: 0.9rem;
-  background: #00558b;
-  color: #fff; }
-  .button-auth .iconic {
-    width: 1em;
-    height: 1em;
-    vertical-align: middle;
-    margin-right: 0.25em;
-    margin-top: -2px; }
-  .button-auth:hover, .button-auth:focus {
-    background: #004876;
-    color: #fff; }
-  .button-auth .iconic * {
-    fill: #fff;
-    stroke: #fff; }
-    .button-auth .iconic *.iconic-property-accent {
-      fill: #fff;
-      stroke: #fff; }
-
-.reveal-modal {
-  position: fixed;
-  top: 150px !important; }
-
-.fade {
-  opacity: 0;
-  -webkit-transition: opacity 0.15s linear;
-  transition: opacity 0.15s linear; }
-
-.fade.in {
-  opacity: 1; }
-
-.reveal-modal.fade {
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-  -webkit-transform: translate(0, -25%);
-  -ms-transform: translate(0, -25%);
-  transform: translate(0, -25%); }
-
-.reveal-modal.in {
-  -webkit-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  transform: translate(0, 0); }
-
-.reveal-modal-bg.fade {
-  filter: alpha(opacity=0);
-  opacity: 0; }
-
-.reveal-modal-bg.in {
-  filter: alpha(opacity=50);
-  opacity: .5; }
 
 .masonry-brick {
   border: 1px solid #D8D2D2;

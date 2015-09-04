@@ -1,18 +1,17 @@
 
 <div class="grid-content">
-  <div masonry="masonry">
-    <div ng-repeat="bundle in bundles" class="masonry-brick">
-      <div class="card"><img ng-src="{{bundle.ogImg}}"/>
-        <div class="card-divider">{{bundle.userTitle}}
-          <div class="card-section">
-            <h5>{{bundle.title}}</h5>
-            <p>{{bundle.description}}</p>
-          </div>
-          <div class="card-hidden">
-            <div class="card-icons"><a href="{{bundle.url}}"><i class="fi- fi-arrow-right size-30"></i></a><a href=""><i class="fi-bookmark size-30"></i></a><a href="#"><i class="fi-link size-30"></i></a><a method="get" ng-click="delete(bundle._id)"><i class="fi-trash size-30"></i></a><a href="#"><i class="fi-widget size-30"></i></a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <tbody>
+    <tr>
+      <th>Product Name</th>
+      <th>Quantity Per Unit</th>
+      <th>Unit Price</th>
+      <th>Units In Stock</th>
+    </tr>
+    <tr ng-repeat="products in Ctrl.products">
+      <td>{{products.ProductName}}</td>
+      <td>{{products.QuantityPerUnit}}</td>
+      <td>{{products.UnitPrice}}</td>
+      <td>{{products.UnitsInStock}}</td>
+    </tr>
+  </tbody>
 </div>

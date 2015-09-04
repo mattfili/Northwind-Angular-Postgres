@@ -3,6 +3,7 @@
 		a.tab(ng-click="activeTab = 'Story'" ng-class="{'tabActive': activeTab === 'Story'}") Story
 		a.tab(ng-click="activeTab = 'Bundle'" ng-class="{'tabActive': activeTab === 'Bundle'}") Bundle
 		.switch-container_animation(ng-switch="activeTab")
+			
 			//ADD STORY
 			.switch-content_animation(ng-switch-when="Story")
 				h4.text-center Add Story

@@ -1,4 +1,5 @@
-# capstonerevamped
+# Northwind Business Application 
 
-Bundling and sharing stories with web content 
+Using an Angular Front End and Express Postgres Backend
+
 
