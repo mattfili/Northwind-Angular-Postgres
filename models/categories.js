@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   var categories = sequelize.define('categories', { 
-    id: {
+    CategoryID: {
       type: DataTypes.INTEGER,
       field: 'CategoryID',
       allowNull: false,
@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function (models) {
         categories
-          .belongsTo(models.products)
+          .belongsTo(models.products, {foreignKey: 'CategoryID'})
       }
     }
   });

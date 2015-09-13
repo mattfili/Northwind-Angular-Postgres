@@ -1,10 +1,9 @@
 "use strict"
-var Model = require(__dirname)
 
 
 module.exports = function(sequelize, DataTypes) {
   var products = sequelize.define('products', { 
-    id: {
+    ProductID: {
       type: DataTypes.INTEGER,
       field: 'ProductID',     
       allowNull: false,
@@ -15,19 +14,19 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    suppliers_id: {
+    SupplierID: {
       type: DataTypes.INTEGER,
       field: 'SupplierID',     
       allowNull: true,
       references: 'suppliers',
-      referencesKey: 'id'
+      referencesKey: 'SupplierID'
     },
-    categories_id: {
+    CategoryID: {
       type: DataTypes.INTEGER,
       field: 'CategoryID',     
       allowNull: true,
       references: 'categories',
-      referencesKey:'id'
+      referencesKey:'CategoryID'
     },
     QuantityPerUnit: {
       type: DataTypes.STRING,
@@ -60,8 +59,8 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function (models) {
         products
-          .hasOne(models.categories)
-          .hasOne(models.suppliers)
+          .hasOne(models.categories, {foreignKey: 'CategoryID'})
+          .hasOne(models.suppliers, {foreignKey: 'SupplierID'})
       }
     }
   });

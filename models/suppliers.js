@@ -60,7 +60,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function (models) {
         suppliers
-          .belongsTo(models.products)
+          .belongsTo(models.products, {foreignKey: 'suppliers_id'})
       }
     }
   });

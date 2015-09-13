@@ -24,7 +24,8 @@ models.sequelize.sync().done(function() {
 	console.log(models.sequelize)
 })
 
-
+// models.categories.belongsTo(models.products, {foreignKey: 'CategoryID'})
+// models.products.hasOne(models.categories, {foreignKey: 'CategoryID'})
 
 app.use(restful(models.sequelize));
 
