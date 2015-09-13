@@ -4,18 +4,21 @@ module.exports = function(sequelize, DataTypes) {
   var orders = sequelize.define('orders', { 
     id: {
       type: DataTypes.INTEGER,
+      field: 'OrderID',     
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
     customers_id: {
       type: DataTypes.INTEGER,
+      field: 'CustomerID',     
       allowNull: true,
       references: 'customers',
       referencesKey:'id'
     },
     employees_id: {
       type: DataTypes.INTEGER,
+      field: 'EmployeeID',     
       allowNull: true,
       references: 'employees',
       referencesKey: 'id'

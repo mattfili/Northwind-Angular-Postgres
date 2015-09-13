@@ -1,25 +1,24 @@
 "use strict"
 
+
 module.exports = function(sequelize, DataTypes) {
-  var customercustomerdemo = sequelize.define('customercustomerdemo', { 
-    id: {
+  var employeeterritories = sequelize.define('employeeterritories', { 
+    employees_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-      field: 'CustomerID'
-    },
-    customerdemographics_id: {
-      type: DataTypes.INTEGER,
-      field: 'CustomerTypeID',
-      allowNull: false,
-      references: 'customerdemographics',
+      references: 'employees',
       referencesKey: 'id'
-    }
+    },
+    territories_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: 'territories',
+      referencesKey: 'id'
+      }
   }, {
     freezeTableName: true,
     syncOnAssociation: false,
     underscored: true
   });
-  return customercustomerdemo;
+  return employeeterritories;
 };

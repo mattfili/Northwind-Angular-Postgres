@@ -4,12 +4,14 @@ module.exports = function(sequelize, DataTypes) {
   var order_details = sequelize.define('order_details', { 
     id: {
       type: DataTypes.INTEGER,
+      field: 'OrderID',     
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
     products_id: {
       type: DataTypes.INTEGER,
+      field: 'ProductID',     
       allowNull: false,
       references: 'products',
       referencesKey: 'id'

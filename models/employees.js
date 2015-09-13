@@ -4,6 +4,7 @@ module.exports = function(sequelize, DataTypes) {
   var employees = sequelize.define('employees', { 
     id: {
       type: DataTypes.INTEGER,
+      field: 'EmployeeID',
       allowNull: false,
       primaryKey: true,
       autoIncrement: true

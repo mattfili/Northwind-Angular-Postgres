@@ -1,24 +1,35 @@
 "use strict"
 
 module.exports = function(sequelize, DataTypes) {
-  var  customers = sequelize.define('customers', { 
+  var employees = sequelize.define('employees', { 
     id: {
       type: DataTypes.INTEGER,
-      field: 'CustomerID',
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    CompanyName: {
+    LastName: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    ContactName: {
+    FirstName: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    Title: {
       type: DataTypes.STRING,
       allowNull: true
     },
-    ContactTitle: {
+    TitleOfCourtesy: {
       type: DataTypes.STRING,
+      allowNull: true
+    },
+    BirthDate: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    HireDate: {
+      type: DataTypes.DATE,
       allowNull: true
     },
     Address: {
@@ -41,11 +52,27 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     },
-    Phone: {
+    HomePhone: {
       type: DataTypes.STRING,
       allowNull: true
     },
-    Fax: {
+    Extension: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    Photo: {
+      type: DataTypes.BLOB,
+      allowNull: true
+    },
+    Notes: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
+    ReportsTo: {  
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    PhotoPath: {
       type: DataTypes.STRING,
       allowNull: true
     }
@@ -54,5 +81,5 @@ module.exports = function(sequelize, DataTypes) {
     syncOnAssociation: false,
     underscored: true
   });
-  return customers;
+return employees;
 };

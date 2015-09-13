@@ -4,6 +4,7 @@ module.exports = function(sequelize, DataTypes) {
   var suppliers = sequelize.define('suppliers', { 
     id: {
       type: DataTypes.INTEGER,
+      field: 'SupplierID',
       allowNull: false,
       primaryKey: true,
       autoIncrement: true

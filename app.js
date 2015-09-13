@@ -20,10 +20,9 @@ var models = require('./models')
 
 // var sequelize = require('./models/index')
 
-// models.sequelize.sync().done(function() {
-// 	console.log(models.sequelize)
-// })
-
+models.sequelize.sync().done(function() {
+	console.log(models.sequelize)
+})
 
 
 

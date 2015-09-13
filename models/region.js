@@ -4,6 +4,7 @@ module.exports = function(sequelize, DataTypes) {
   var region = sequelize.define('region', { 
     id: {
       type: DataTypes.INTEGER,
+      field: 'RegionID',     
       allowNull: false,
       primaryKey: true,
       autoIncrement: true

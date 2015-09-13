@@ -1,30 +1,21 @@
 "use strict"
 
-
 module.exports = function(sequelize, DataTypes) {
-  var territories = sequelize.define('territories', { 
+  var customerdemographics = sequelize.define('customerdemographics', { 
     id: {
       type: DataTypes.INTEGER,
-      field: 'TerritoryID',
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    TerritoryDescription: {
+    CustomerDesc: {
       type: DataTypes.TEXT,
-      allowNull: false
-    },
-    region_id: {
-      type: DataTypes.INTEGER,
-      field: 'RegionID',
-      allowNull: false,
-      references: 'region',
-      referencesKey: 'id'
+      allowNull: true
     }
   }, {
     freezeTableName: true,
     syncOnAssociation: false,
     underscored: true
   });
-  return territories;
+  return customerdemographics;
 };

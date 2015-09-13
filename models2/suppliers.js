@@ -1,10 +1,9 @@
 "use strict"
 
 module.exports = function(sequelize, DataTypes) {
-  var  customers = sequelize.define('customers', { 
+  var suppliers = sequelize.define('suppliers', { 
     id: {
       type: DataTypes.INTEGER,
-      field: 'CustomerID',
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
@@ -48,11 +47,21 @@ module.exports = function(sequelize, DataTypes) {
     Fax: {
       type: DataTypes.STRING,
       allowNull: true
+    },
+    HomePage: {
+      type: DataTypes.TEXT,
+      allowNull: true
     }
   }, {
     freezeTableName: true,
     syncOnAssociation: false,
-    underscored: true
+    underscored: true,
+    classMethods: {
+      associate: function (models) {
+        suppliers
+          .belongsTo(models.products)
+      }
+    }
   });
-  return customers;
+  return suppliers;
 };

@@ -1,51 +1,66 @@
 "use strict"
 
 module.exports = function(sequelize, DataTypes) {
-  var  customers = sequelize.define('customers', { 
+  var orders = sequelize.define('orders', { 
     id: {
       type: DataTypes.INTEGER,
-      field: 'CustomerID',
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    CompanyName: {
-      type: DataTypes.STRING,
-      allowNull: false
+    customers_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: 'customers',
+      referencesKey:'id'
     },
-    ContactName: {
+    employees_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: 'employees',
+      referencesKey: 'id'
+    },
+    OrderDate: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    RequiredDate: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    ShippedDate: {
+      type: DataTypes.DATE,
+      allowNull: true
+    },
+    ShipVia: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    Freight: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    ShipName: {
       type: DataTypes.STRING,
       allowNull: true
     },
-    ContactTitle: {
+    ShipAddress: {
       type: DataTypes.STRING,
       allowNull: true
     },
-    Address: {
+    ShipCity: {
       type: DataTypes.STRING,
       allowNull: true
     },
-    City: {
+    ShipRegion: {
       type: DataTypes.STRING,
       allowNull: true
     },
-    Region: {
+    ShipPostalCode: {
       type: DataTypes.STRING,
       allowNull: true
     },
-    PostalCode: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    Country: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    Phone: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    Fax: {
+    ShipCountry: {
       type: DataTypes.STRING,
       allowNull: true
     }
@@ -54,5 +69,5 @@ module.exports = function(sequelize, DataTypes) {
     syncOnAssociation: false,
     underscored: true
   });
-  return customers;
+return orders;
 };

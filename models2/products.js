@@ -6,7 +6,6 @@ module.exports = function(sequelize, DataTypes) {
   var products = sequelize.define('products', { 
     id: {
       type: DataTypes.INTEGER,
-      field: 'ProductID',     
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
@@ -17,14 +16,12 @@ module.exports = function(sequelize, DataTypes) {
     },
     suppliers_id: {
       type: DataTypes.INTEGER,
-      field: 'SupplierID',     
       allowNull: true,
       references: 'suppliers',
       referencesKey: 'id'
     },
     categories_id: {
       type: DataTypes.INTEGER,
-      field: 'CategoryID',     
       allowNull: true,
       references: 'categories',
       referencesKey:'id'

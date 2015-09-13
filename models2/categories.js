@@ -4,7 +4,6 @@ module.exports = function(sequelize, DataTypes) {
   var categories = sequelize.define('categories', { 
     id: {
       type: DataTypes.INTEGER,
-      field: 'CategoryID',
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
