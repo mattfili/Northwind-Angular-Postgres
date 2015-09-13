@@ -8,12 +8,10 @@ module.exports = function(sequelize, DataTypes) {
       identifier: {type: DataTypes.INTEGER, primaryKey: true}
     },
     CustomerTypeID: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
-      references: {
-        model: 'customerdemographics',
-        key: 'CustomerTypeID'
-      }
+      references: 'customerdemographics',
+      referencesKey: 'CustomerTypeID'
     }
   });
   return customercustomerdemo;

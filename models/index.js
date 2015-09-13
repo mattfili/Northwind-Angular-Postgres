@@ -5,7 +5,12 @@ var path      = require('path');
 var Sequelize = require('sequelize');
 var env       = process.env.NODE_ENV || 'development';
 var config    = require(__dirname + '/../bin/config.json')[env];
-var sequelize = new Sequelize('postgres:/Southwind');
+var sequelize = new Sequelize(config.database, config.username, config.password, {
+  port: config.port,
+  host: config.host,
+  logger: console.log,
+  dialect: config.dialect
+});
 var db        = {};
 
 // if (config.use_env_variable) {

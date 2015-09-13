@@ -1,4 +1,6 @@
 "use strict"
+var Model = require(__dirname)
+
 
 module.exports = function(sequelize, DataTypes) {
   var products = sequelize.define('products', { 
@@ -14,25 +16,21 @@ module.exports = function(sequelize, DataTypes) {
     SupplierID: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      references: {
-        model: 'suppliers',
-        key: 'SupplierID'
-      }
+      references: 'suppliers',
+      referencesKey: 'SupplierID'
     },
     CategoryID: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      references: {
-        model: 'categories',
-        key: 'CategoryID'
-      }
+      references: 'categories',
+      referencesKey:'CategoryID'
     },
     QuantityPerUnit: {
       type: DataTypes.STRING,
       allowNull: true
     },
     UnitPrice: {
-      type: DataTypes.REAL,
+      type: DataTypes.INTEGER,
       allowNull: true
     },
     UnitsInStock: {
@@ -48,7 +46,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     Discontinued: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.BOOLEAN,
       allowNull: false
     }
   });

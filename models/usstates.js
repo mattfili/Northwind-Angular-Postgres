@@ -1,4 +1,5 @@
 "use strict"
+var Model = require(__dirname)
 
 module.exports = function(sequelize, DataTypes) {
   var usstates = sequelize.define('usstates', { 

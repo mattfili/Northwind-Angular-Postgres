@@ -1,21 +1,20 @@
 "use strict"
+
+
 module.exports = function(sequelize, DataTypes) {
   var employeeterritories = sequelize.define('employeeterritories', { 
     EmployeeID: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: {
-        model: 'employees',
-        key: 'EmployeesID'
-      }
+      references: 'employees',
+      referencesKey: 'EmployeesID'
+    },
     TerritoryID: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
-      references: {
-        model: 'territories',
-        key: 'TerritoryID'
+      references: 'territories',
+      referencesKey: 'TerritoryID'
       }
-    }
   });
   return employeeterritories;
 };

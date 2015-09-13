@@ -1,4 +1,3 @@
-// var sequelize = new Sequelize('Southwind', 'Fili')
 var Model = require('./models')
 
 exports.getProducts = function(req, res) {

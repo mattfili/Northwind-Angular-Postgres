@@ -70,10 +70,8 @@ module.exports = function(sequelize, DataTypes) {
     ReportsTo: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      references: {
-        model: 'employees',
-        key: 'EmployeeID'
-      }
+      references: 'employees',
+      referencesKey: 'EmployeeID'
     },
     PhotoPath: {
       type: DataTypes.STRING,

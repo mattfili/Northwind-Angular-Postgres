@@ -1,5 +1,6 @@
 "use strict"
 
+
 module.exports = function(sequelize, DataTypes) {
   var territories = sequelize.define('territories', { 
     TerritoryID: {
@@ -14,10 +15,8 @@ module.exports = function(sequelize, DataTypes) {
     RegionID: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: {
-        model: 'region',
-        key: 'RegionID'
-      }
+      references: 'region',
+      referencesKey: 'RegionID'
     }
   });
   return territories;

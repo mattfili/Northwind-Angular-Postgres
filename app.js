@@ -3,19 +3,11 @@ var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var request = require('request');
+var restful   = require('sequelize-restful-extended');
 var app = express();
   
 // ROUTE REQUIRES
-var models = require('./models')
-var api = require('./api')
-
-//DB CONFIG
-// if (process.env.NODE_ENV !== 'production') {
-//   require('./bin/secrets');
-// }
-
-
-
+var port = process.env.PORT || 8080;
 
 // MIDDLEWARES
 app.use(logger('common'));
@@ -23,17 +15,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
-models.sequelize.sync().then (function() {
-  var server = app.listen(app.get('port'), function() {
-    console.log("You're listening to http://localhost:" + server.address().port + " home of the internet's smoothest jazz and easy listening" );
-  });
-});
+// DEFINE MODELS, ENABLE BULK IMPORT, AND INITIALIZE REST API
+var models = require('./models')
+var sequelize = models.sequelize
+
+// REST API ENDPOINTS AUTO-GENERATED
+app.use(restful(sequelize));
 
 
-// ENDPOINTS
-app.use('/api', api)
-
-
+// START SERVER
+app.listen(port)
+console.log("You're listening to http://localhost:" + port + " home of the internet's smoothest jazz and easy listening" );
 
 
 
@@ -41,13 +33,6 @@ app.use('/api', api)
 app.get('*', function (req, res) {
   res.redirect('/#' + req.originalUrl)
 })
-
-
-
-
-
-
-
 
 
 // ERROR HANDLING

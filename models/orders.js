@@ -10,18 +10,14 @@ module.exports = function(sequelize, DataTypes) {
     CustomerID: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      references: {
-        model: 'customers',
-        key: 'CustomerID'
-      }
+      references: 'customers',
+      referencesKey:'CustomerID'
     },
     EmployeeID: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      references: {
-        model: 'employee',
-        key: 'EmployeeID'
-      }
+      references: 'employee',
+      referencesKey: 'EmployeeID'
     },
     OrderDate: {
       type: DataTypes.DATE,
@@ -40,7 +36,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     },
     Freight: {
-      type: DataTypes.REAL,
+      type: DataTypes.INTEGER,
       allowNull: true
     },
     ShipName: {
