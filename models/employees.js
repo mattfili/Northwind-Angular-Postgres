@@ -2,10 +2,11 @@
 
 module.exports = function(sequelize, DataTypes) {
   var employees = sequelize.define('employees', { 
-    EmployeeID: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      identifier: {type: DataTypes.INTEGER, primaryKey: true}
+      primaryKey: true,
+      autoIncrement: true
     },
     LastName: {
       type: DataTypes.STRING,
@@ -67,16 +68,18 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: true
     },
-    ReportsTo: {
+    ReportsTo: {  
       type: DataTypes.INTEGER,
       allowNull: true,
-      references: 'employees',
-      referencesKey: 'EmployeeID'
     },
     PhotoPath: {
       type: DataTypes.STRING,
       allowNull: true
     }
+  }, {
+    freezeTableName: true,
+    syncOnAssociation: false,
+    underscored: true
   });
 return employees;
 };

@@ -26,9 +26,9 @@ fs
   })
   .forEach(function(file) {
     var model = sequelize.import(path.join(__dirname, file));
-    model.removeAttribute('id')
-    model.removeAttribute('createdAt')
-    model.removeAttribute('updatedAt')
+    // model.removeAttribute('id')
+    // model.removeAttribute('createdAt')
+    // model.removeAttribute('updatedAt')
     db[model.name] = model;
   });
 

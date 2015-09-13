@@ -4,26 +4,27 @@ var Model = require(__dirname)
 
 module.exports = function(sequelize, DataTypes) {
   var products = sequelize.define('products', { 
-    ProductID: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      identifier: {type: DataTypes.INTEGER, primaryKey: true}
+      primaryKey: true,
+      autoIncrement: true
     },
     ProductName: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    SupplierID: {
+    suppliers_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: 'suppliers',
-      referencesKey: 'SupplierID'
+      referencesKey: 'id'
     },
-    CategoryID: {
+    categories_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: 'categories',
-      referencesKey:'CategoryID'
+      referencesKey:'id'
     },
     QuantityPerUnit: {
       type: DataTypes.STRING,
@@ -48,6 +49,17 @@ module.exports = function(sequelize, DataTypes) {
     Discontinued: {
       type: DataTypes.BOOLEAN,
       allowNull: false
+    }
+  }, {
+    freezeTableName: true,
+    syncOnAssociation: false,
+    underscored: true,
+    classMethods: {
+      associate: function (models) {
+        products
+          .hasOne(models.categories)
+          .hasOne(models.suppliers)
+      }
     }
   });
   return products;

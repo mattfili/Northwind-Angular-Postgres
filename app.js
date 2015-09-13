@@ -17,10 +17,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // DEFINE MODELS, ENABLE BULK IMPORT, AND INITIALIZE REST API
 var models = require('./models')
-var sequelize = models.sequelize
+
+// var sequelize = require('./models/index')
+
+// models.sequelize.sync().done(function() {
+// 	console.log(models.sequelize)
+// })
+
+
+
+
+app.use(restful(models.sequelize));
+
+
+
+
 
 // REST API ENDPOINTS AUTO-GENERATED
-app.use(restful(sequelize));
+
+
 
 
 // START SERVER

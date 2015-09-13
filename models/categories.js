@@ -2,10 +2,11 @@
 
 module.exports = function(sequelize, DataTypes) {
   var categories = sequelize.define('categories', { 
-    CategoryID: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      identifier: {type: DataTypes.INTEGER, primaryKey: true}
+      primaryKey: true,
+      autoIncrement: true
     },
     CategoryName: {
       type: DataTypes.STRING,
@@ -18,6 +19,16 @@ module.exports = function(sequelize, DataTypes) {
     Picture: {
       type: DataTypes.BLOB,
       allowNull: true
+    }
+  }, {
+    freezeTableName: true,
+    syncOnAssociation: false,
+    underscored: true,
+    classMethods: {
+      associate: function (models) {
+        categories
+          .belongsTo(models.products)
+      }
     }
   });
 

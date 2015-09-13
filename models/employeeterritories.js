@@ -3,18 +3,22 @@
 
 module.exports = function(sequelize, DataTypes) {
   var employeeterritories = sequelize.define('employeeterritories', { 
-    EmployeeID: {
+    employees_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: 'employees',
-      referencesKey: 'EmployeesID'
+      referencesKey: 'id'
     },
-    TerritoryID: {
+    territories_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: 'territories',
-      referencesKey: 'TerritoryID'
+      referencesKey: 'id'
       }
+  }, {
+    freezeTableName: true,
+    syncOnAssociation: false,
+    underscored: true
   });
   return employeeterritories;
 };

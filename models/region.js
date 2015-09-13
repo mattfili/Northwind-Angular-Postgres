@@ -2,15 +2,20 @@
 
 module.exports = function(sequelize, DataTypes) {
   var region = sequelize.define('region', { 
-    RegionID: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      identifier: {type: DataTypes.INTEGER, primaryKey: true}
+      primaryKey: true,
+      autoIncrement: true
     },
     RegionDescription: {
       type: DataTypes.TEXT,
       allowNull: false
     }
+  }, {
+    freezeTableName: true,
+    syncOnAssociation: false,
+    underscored: true
   });
   return region;
 };

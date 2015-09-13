@@ -3,21 +3,26 @@
 
 module.exports = function(sequelize, DataTypes) {
   var territories = sequelize.define('territories', { 
-    TerritoryID: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      identifier: {type: DataTypes.INTEGER, primaryKey: true}
+      primaryKey: true,
+      autoIncrement: true
     },
     TerritoryDescription: {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    RegionID: {
+    region_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: 'region',
-      referencesKey: 'RegionID'
+      referencesKey: 'id'
     }
+  }, {
+    freezeTableName: true,
+    syncOnAssociation: false,
+    underscored: true
   });
   return territories;
 };

@@ -2,10 +2,11 @@
 
 module.exports = function(sequelize, DataTypes) {
   var  customers = sequelize.define('customers', { 
-    CustomerID: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      identifier: {type: DataTypes.INTEGER, primaryKey: true}
+      primaryKey: true,
+      autoIncrement: true
     },
     CompanyName: {
       type: DataTypes.STRING,
@@ -47,6 +48,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     }
+  }, {
+    freezeTableName: true,
+    syncOnAssociation: false,
+    underscored: true
   });
   return customers;
 };

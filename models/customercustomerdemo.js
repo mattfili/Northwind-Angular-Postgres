@@ -2,17 +2,22 @@
 
 module.exports = function(sequelize, DataTypes) {
   var customercustomerdemo = sequelize.define('customercustomerdemo', { 
-    CustomerID: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      identifier: {type: DataTypes.INTEGER, primaryKey: true}
+      primaryKey: true,
+      autoIncrement: true
     },
-    CustomerTypeID: {
+    customerdemographics_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: 'customerdemographics',
-      referencesKey: 'CustomerTypeID'
+      referencesKey: 'id'
     }
+  }, {
+    freezeTableName: true,
+    syncOnAssociation: false,
+    underscored: true
   });
   return customercustomerdemo;
 };

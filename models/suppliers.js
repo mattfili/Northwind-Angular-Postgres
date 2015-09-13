@@ -2,10 +2,11 @@
 
 module.exports = function(sequelize, DataTypes) {
   var suppliers = sequelize.define('suppliers', { 
-    SupplierID: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      identifier: {type: DataTypes.INTEGER, primaryKey: true}
+      primaryKey: true,
+      autoIncrement: true
     },
     CompanyName: {
       type: DataTypes.STRING,
@@ -50,6 +51,16 @@ module.exports = function(sequelize, DataTypes) {
     HomePage: {
       type: DataTypes.TEXT,
       allowNull: true
+    }
+  }, {
+    freezeTableName: true,
+    syncOnAssociation: false,
+    underscored: true,
+    classMethods: {
+      associate: function (models) {
+        suppliers
+          .belongsTo(models.products)
+      }
     }
   });
   return suppliers;

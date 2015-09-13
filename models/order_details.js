@@ -2,16 +2,17 @@
 
 module.exports = function(sequelize, DataTypes) {
   var order_details = sequelize.define('order_details', { 
-    OrderID: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      identifier: {type: DataTypes.INTEGER, primaryKey: true}
+      primaryKey: true,
+      autoIncrement: true
     },
-    ProductID: {
+    products_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: 'products',
-      referencesKey: 'ProductID'
+      referencesKey: 'id'
     },
     UnitPrice: {
       type: DataTypes.INTEGER,
@@ -25,6 +26,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DECIMAL,
       allowNull: false
     }
+  }, {
+    freezeTableName: true,
+    syncOnAssociation: false,
+    underscored: true
   });
   return order_details;
 };

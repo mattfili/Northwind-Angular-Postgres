@@ -3,10 +3,11 @@ var Model = require(__dirname)
 
 module.exports = function(sequelize, DataTypes) {
   var usstates = sequelize.define('usstates', { 
-    StateID: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      identifier: {type: DataTypes.INTEGER, primaryKey: true}
+      primaryKey: true,
+      autoIncrement: true
     },
     StateName: {
       type: DataTypes.STRING,
@@ -20,6 +21,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     }
+  }, {
+    freezeTableName: true,
+    syncOnAssociation: false,
+    underscored: true
   });
   return usstates;
 };
