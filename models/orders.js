@@ -2,26 +2,26 @@
 
 module.exports = function(sequelize, DataTypes) {
   var orders = sequelize.define('orders', { 
-    id: {
+    OrderID: {
       type: DataTypes.INTEGER,
       field: 'OrderID',     
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    customers_id: {
+    CustomerID: {
       type: DataTypes.INTEGER,
       field: 'CustomerID',     
       allowNull: true,
       references: 'customers',
       referencesKey:'id'
     },
-    employees_id: {
+    EmployeeID: {
       type: DataTypes.INTEGER,
       field: 'EmployeeID',     
       allowNull: true,
       references: 'employees',
-      referencesKey: 'id'
+      referencesKey: 'EmployeeID'
     },
     OrderDate: {
       type: DataTypes.DATE,
@@ -37,7 +37,9 @@ module.exports = function(sequelize, DataTypes) {
     },
     ShipVia: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      references: 'shippers',
+      referencesKey: 'ShipperID'
     },
     Freight: {
       type: DataTypes.INTEGER,
@@ -70,7 +72,16 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     freezeTableName: true,
     syncOnAssociation: false,
-    underscored: true
+    underscored: true,    
+    classMethods: {
+      associate: function (models) {
+        orders
+          .hasMany(models.order_details, {foreignKey: 'OrderID'})
+          .hasOne(models.shippers, {foreignKey: 'ShipVia'})
+          .hasOne(models.customers, {foreignKey: 'CustomerID'})
+          .hasOne(models.employees, {foreignKey: 'EmployeeID', as: 'Salesperson'} )
+      }
+    }
   });
 return orders;
 };

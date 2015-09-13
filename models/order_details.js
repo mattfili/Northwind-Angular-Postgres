@@ -2,19 +2,19 @@
 
 module.exports = function(sequelize, DataTypes) {
   var order_details = sequelize.define('order_details', { 
-    id: {
+    OrderID: {
       type: DataTypes.INTEGER,
       field: 'OrderID',     
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    products_id: {
+    ProductID: {
       type: DataTypes.INTEGER,
       field: 'ProductID',     
       allowNull: false,
       references: 'products',
-      referencesKey: 'id'
+      referencesKey: 'ProductID'
     },
     UnitPrice: {
       type: DataTypes.INTEGER,
@@ -31,7 +31,14 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     freezeTableName: true,
     syncOnAssociation: false,
-    underscored: true
+    underscored: true,    
+    classMethods: {
+      associate: function (models) {
+        order_details
+          .belongsTo(models.orders, {foreignKey: 'OrderID'})
+          .hasOne(models.products, {foreignKey: 'ProductID'})
+      }
+    }
   });
   return order_details;
 };

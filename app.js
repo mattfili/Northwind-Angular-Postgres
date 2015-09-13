@@ -8,6 +8,7 @@ var app = express();
   
 // ROUTE REQUIRES
 var port = process.env.PORT || 8080;
+var altApi = require('./api')
 
 // MIDDLEWARES
 app.use(logger('common'));
@@ -24,14 +25,13 @@ models.sequelize.sync().done(function() {
 	console.log(models.sequelize)
 })
 
-// models.categories.belongsTo(models.products, {foreignKey: 'CategoryID'})
-// models.products.hasOne(models.categories, {foreignKey: 'CategoryID'})
 
 app.use(restful(models.sequelize));
 
 
 
 
+app.use('', altApi)
 
 // REST API ENDPOINTS AUTO-GENERATED
 
@@ -43,11 +43,12 @@ app.listen(port)
 console.log("You're listening to http://localhost:" + port + " home of the internet's smoothest jazz and easy listening" );
 
 
-
 // CATCH ALL FOR HTML 5 MODE (allows UI-Router driven states)
 app.get('*', function (req, res) {
   res.redirect('/#' + req.originalUrl)
 })
+
+
 
 
 // ERROR HANDLING

@@ -71,7 +71,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     ReportsTo: {  
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: true
     },
     PhotoPath: {
       type: DataTypes.STRING,
@@ -80,7 +80,15 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     freezeTableName: true,
     syncOnAssociation: false,
-    underscored: true
+    underscored: true,
+    classMethods: {
+      associate: function (models) {
+        employees
+          .hasMany(models.orders, {foreignKey: 'EmployeeID'})
+          .hasMany(models.employeeterritories, {foreignKey: 'EmployeeID'})
+          .hasOne(models.employees, {foreignKey: 'ReportsTo'})
+      }
+    }
   });
 return employees;
 };

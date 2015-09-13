@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   var suppliers = sequelize.define('suppliers', { 
-    id: {
+    SupplierID: {
       type: DataTypes.INTEGER,
       field: 'SupplierID',
       allowNull: false,
@@ -60,7 +60,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function (models) {
         suppliers
-          .belongsTo(models.products, {foreignKey: 'suppliers_id'})
+          .hasMany(models.products, {foreignKey: 'SupplierID'})
       }
     }
   });

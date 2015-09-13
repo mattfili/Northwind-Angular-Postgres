@@ -61,6 +61,7 @@ module.exports = function(sequelize, DataTypes) {
         products
           .hasOne(models.categories, {foreignKey: 'CategoryID'})
           .hasOne(models.suppliers, {foreignKey: 'SupplierID'})
+          .hasMany(models.order_details, {foreignKey: 'ProductID'})
       }
     }
   });

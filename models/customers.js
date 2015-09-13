@@ -52,7 +52,13 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     freezeTableName: true,
     syncOnAssociation: false,
-    underscored: true
+    underscored: true,
+    classMethods: {
+      associate: function (models) {
+       customers
+          .hasMany(models.orders, {foreignKey: 'OrderID'})
+      }
+    }
   });
   return customers;
 };

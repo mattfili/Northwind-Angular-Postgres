@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   var region = sequelize.define('region', { 
-    id: {
+    RegionID: {
       type: DataTypes.INTEGER,
       field: 'RegionID',     
       allowNull: false,
@@ -16,7 +16,13 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     freezeTableName: true,
     syncOnAssociation: false,
-    underscored: true
+    underscored: true,
+    classMethods: {
+      associate: function (models) {
+        region
+          .belongsTo(models.territories, {foreignKey: 'RegionID'})
+      }
+    }
   });
   return region;
 };

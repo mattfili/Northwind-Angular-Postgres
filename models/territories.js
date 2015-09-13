@@ -3,7 +3,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   var territories = sequelize.define('territories', { 
-    id: {
+    TerritoryID: {
       type: DataTypes.INTEGER,
       field: 'TerritoryID',
       allowNull: false,
@@ -14,17 +14,24 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    region_id: {
+    RegionID: {
       type: DataTypes.INTEGER,
       field: 'RegionID',
       allowNull: false,
       references: 'region',
-      referencesKey: 'id'
+      referencesKey: 'RegionID'
     }
   }, {
     freezeTableName: true,
     syncOnAssociation: false,
-    underscored: true
+    underscored: true,
+    classMethods: {
+      associate: function (models) {
+        territories
+          .hasMany(models.employeeterritories, {foreignKey: 'TerritoryID'})
+          .hasOne(models.region, {foreignKey: 'RegionID'})
+      }
+    }
   });
   return territories;
 };

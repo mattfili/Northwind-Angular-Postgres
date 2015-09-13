@@ -1,16 +1,48 @@
 .grid-content.align-center
-	table
-		tbody
-			tr
-				th Product Name
-				th Quantity Per Unit
-				th Unit Price
-				th Units In Stock
-			tr(ng-repeat="products in Ctrl.products")
-				td {{products.ProductName}}
-				td {{products.QuantityPerUnit}}
-				td {{products.UnitPrice}}
-				td {{products.UnitsInStock}}
+
+	h4.text-center Look For
+
+	form(type="submit" method="GET" ng-submit="Ctrl.getTables()")
+		label
+			select(name="" id="")
+				input(type="radio" ng-repeat="table in Ctrl.table.baseline" ng-model="tabel" ) 
+				.thing(ng-value="table" name="topTable"  ng-model-options="{ getterSetter: true }")
+				.name(ng-bind="Ctrl.value.table()") {{table}}  
+			button.button-auth.expand(type="submit")
+		label {{Ctrl.value}}
+
+
+				//- label table
+				//- 	input(type="text", ng-model="$parent.storyTitle" placeholder="Enter story title" name="storyTitle" required)
+				//- label limit
+				//- 	input(type="text", ng-model="$parent.storyTitle" placeholder="Enter story title" name="storyTitle" required)
+				//- 	.validation(ng-if="addStoryForm.storyTitle.$dirty" ng-messages="addStoryForm.storyTitle.$error")
+				//- 		.message(ng-message="required") Try again, a story title is required
+				//- label Description
+				//- 	input(type="text", ng-model="$parent.storyDescription" placeholder="Description" name= "storyDescription")
+
+				//- label Tags
+				//- 	tags-input(add-on-space="true" ng-model="storyTags" placeholder="Add a tag" name="storyTag")
+
+				//- button.button-auth.expand(type="submit" ng-disabled="addStoryForm.$invalid") Submit
+
+
+
+
+
+
+	//- table
+	//- 	tbody
+	//- 		tr
+	//- 			th Product Name
+	//- 			th Quantity Per Unit
+	//- 			th Unit Price
+	//- 			th Units In Stock
+	//- 		tr(ng-repeat="products in Ctrl.products")
+	//- 			td {{products.ProductName}}
+	//- 			td {{products.QuantityPerUnit}}
+	//- 			td {{products.UnitPrice}}
+	//- 			td {{products.UnitsInStock}}
 
 
 
