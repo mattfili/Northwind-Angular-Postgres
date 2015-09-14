@@ -17,7 +17,7 @@
   "dependencies": {
     "jquery": "~2.1.4",
     "lodash": "~3.9.3",
-    "angular": "~1.4.6",
+    "angular": "~1.4.5",
     "angular-bootstrap": "~0.13.0",
     "angular-ui-utils": "~0.2.3",
     "angular-ui-router": "~0.2.15",
@@ -29,15 +29,16 @@
     "modernizr": "~2.8.3",
     "viewport-units-buggyfill": "~0.5.4",
     "fastclick": "~1.0.6",
-    "angular-masonry": "~0.11.1",
     "angular-resource": "~1.4.4",
     "angular-cookies": "~1.4.4",
     "moment": "~2.10.6",
     "angular-messages": "~1.4.4",
     "angular-motion": "~0.4.2",
     "angular-foundation": "~0.6.0",
-    "masonry": "~3.3.1",
     "jquery-bridget": "~1.1.0",
     "ng-tags-input": "3.0.0"
+  },
+  "resolutions": {
+    "angular": "~1.4.5"
   }
 }

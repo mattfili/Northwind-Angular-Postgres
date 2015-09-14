@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   var  customers = sequelize.define('customers', { 
-    id: {
+    CustomerID: {
       type: DataTypes.INTEGER,
       field: 'CustomerID',
       allowNull: false,
@@ -56,7 +56,7 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function (models) {
        customers
-          .hasMany(models.orders, {foreignKey: 'OrderID'})
+          .hasMany(models.orders, {foreignKey: 'CustomerID'})
       }
     }
   });

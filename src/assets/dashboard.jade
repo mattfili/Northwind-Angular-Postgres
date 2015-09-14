@@ -1,34 +1,19 @@
 .grid-content.align-center
 
 	h4.text-center Look For
-
-	form(type="submit" method="GET" ng-submit="Ctrl.getTables()")
-		label
+		label Select
 			select(name="" id="")
-				input(type="radio" ng-repeat="table in Ctrl.table.baseline" ng-model="tabel" ) 
-				.thing(ng-value="table" name="topTable"  ng-model-options="{ getterSetter: true }")
-				.name(ng-bind="Ctrl.value.table()") {{table}}  
-			button.button-auth.expand(type="submit")
-		label {{Ctrl.value}}
+				option(ng-value="Product" ng-model="Ctrl.value") Product
+				option(ng-value="Orders" ng-model="Ctrl.value") Orders
+				option(ng-value="Customers" ng-model="Ctrl.value") Customers
+				option(ng-value="Employees" ng-model="Ctrl.value") Employees
+			button(ng-click="Ctrl.getTables()") Get Table
 
-
-				//- label table
-				//- 	input(type="text", ng-model="$parent.storyTitle" placeholder="Enter story title" name="storyTitle" required)
-				//- label limit
-				//- 	input(type="text", ng-model="$parent.storyTitle" placeholder="Enter story title" name="storyTitle" required)
-				//- 	.validation(ng-if="addStoryForm.storyTitle.$dirty" ng-messages="addStoryForm.storyTitle.$error")
-				//- 		.message(ng-message="required") Try again, a story title is required
-				//- label Description
-				//- 	input(type="text", ng-model="$parent.storyDescription" placeholder="Description" name= "storyDescription")
-
-				//- label Tags
-				//- 	tags-input(add-on-space="true" ng-model="storyTags" placeholder="Add a tag" name="storyTag")
-
-				//- button.button-auth.expand(type="submit" ng-disabled="addStoryForm.$invalid") Submit
-
-
-
-
+	//- form(type="submit" method="GET" ng-submit="Ctrl.getTables()")
+	//- 	label(name="topTable" id="" ng-repeat="table in Ctrl.table.baseline")
+	//- 		input(ng-model="Ctrl.value" ng-value="table" name="topTable"  ng-model-options="{ getterSetter: true }" ng-true-value="table" ng-bind="Ctrl.value.table()")  {{table}}  
+	//- 	button.button-auth.expand(type="submit")
+	//- 	label {{Ctrl.value}}
 
 
 	//- table

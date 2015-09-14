@@ -1,16 +1,16 @@
 angular.module('Northwind')
 
-.factory('Commercial', function($resource) {
+.factory('Commercial', function($resource, $http) {
 	return {
 		get: function() {
 		return $resource ('/api/products');
 		},
 
-		getIt: function(table) {
-			console.log(table)
-			return $resource('/dapi', {
-				table: table
-			});
+		getIt: function(cb) {
+			$http
+				.get('/dapi')
+				.success(function(result) {
+					cb(result)
+				})
 		}
-	}
 })

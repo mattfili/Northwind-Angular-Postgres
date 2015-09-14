@@ -4,13 +4,19 @@ angular.module('Northwind')
 
 	var vm = this;
 
-	var _table = "Products"
+	Commercial.getIt(function(result) {
+		console.log(result)
+		vm.data = result
+	})();
 
-	vm.value = {
-		table: function (newtable) {
-			return arguments.length ? (_table = newtable) : _table;
-		}
-	}
+
+	// var _table = "Products"
+
+	// vm.value = {
+	// 	table: function (newtable) {
+	// 		return arguments.length ? (_table = newtable) : _table;
+	// 	}
+	// }
 
 	// var getAll = new Commercial.get();
 	// vm.products = getAll.query();
@@ -20,11 +26,10 @@ angular.module('Northwind')
 	}
 
 	vm.getTables = function () {
-		var getIt = new Commercial.getIt();
-					console.log(vm.value.$modelValue)
-		vm.table = getIt.query({
-			table : vm.value.$modelValue
-		})
+		// var getIt = new Commercial.getIt();
+		// vm.table = getIt.query({
+		// 	table : vm.value.$modelValue
+		// })
 	}
 
 });

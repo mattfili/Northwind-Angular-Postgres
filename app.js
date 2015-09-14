@@ -31,7 +31,7 @@ app.use(restful(models.sequelize));
 
 
 
-app.use('', altApi)
+app.use('/dapi', altApi)
 
 // REST API ENDPOINTS AUTO-GENERATED
 
