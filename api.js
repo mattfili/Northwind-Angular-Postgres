@@ -1,8 +1,14 @@
 var express = require('express');
+var ctrl = require('./controller');
+
 var router = express.Router();
 
-var ctrl = require(__dirname + '/controller/controller')
 
-router.get('', ctrl.grab)
+
+// REQUIRES
+// var ctrl = require(__dirname + '/controller')
+
+
+router.get('', ctrl.getStuff)
 
 module.exports = router

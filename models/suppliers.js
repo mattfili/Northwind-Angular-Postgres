@@ -54,9 +54,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    freezeTableName: true,
-    syncOnAssociation: false,
-    underscored: true,
+
     classMethods: {
       associate: function (models) {
         suppliers

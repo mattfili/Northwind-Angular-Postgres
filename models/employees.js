@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
   var employees = sequelize.define('employees', { 
-    id: {
+    EmployeeID: {
       type: DataTypes.INTEGER,
       field: 'EmployeeID',
       allowNull: false,
@@ -78,9 +78,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    freezeTableName: true,
-    syncOnAssociation: false,
-    underscored: true,
+
     classMethods: {
       associate: function (models) {
         employees

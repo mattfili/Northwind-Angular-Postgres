@@ -10,7 +10,8 @@ angular.module('Northwind')
 			$http
 				.get('/dapi')
 				.success(function(result) {
-					cb(result)
-				})
+					cb(result);
+				});
 		}
+	}
 })

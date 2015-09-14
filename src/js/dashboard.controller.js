@@ -7,7 +7,7 @@ angular.module('Northwind')
 	Commercial.getIt(function(result) {
 		console.log(result)
 		vm.data = result
-	})();
+	});
 
 
 	// var _table = "Products"

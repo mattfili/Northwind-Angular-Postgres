@@ -36,9 +36,8 @@
     "pg": "^4.4.1",
     "pg-hstore": "^2.3.2",
     "request": "^2.60.0",
-    "sequelize": "^1.7.0-rc2",
+    "sequelize": "^1.7.11",
     "sequelize-import": "^1.2.1",
-    "sequelize-restful-extended": "^0.1.4",
     "serve-favicon": "~2.3.0",
     "xml2js": "^0.4.10"
   },
@@ -65,7 +64,6 @@
     "load-grunt-tasks": "^3.2.0",
     "node-sass": "^3.1.0",
     "nodemon": "^1.3.7",
-    "pg": "^4.4.1",
     "request": "^2.60.0",
     "sequelize-cli": "^1.9.0",
     "x-ray": "^2.0.2"

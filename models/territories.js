@@ -22,9 +22,7 @@ module.exports = function(sequelize, DataTypes) {
       referencesKey: 'RegionID'
     }
   }, {
-    freezeTableName: true,
-    syncOnAssociation: false,
-    underscored: true,
+
     classMethods: {
       associate: function (models) {
         territories

@@ -18,9 +18,7 @@ module.exports = function(sequelize, DataTypes) {
       referencesKey: 'TerritoryID'
       }
   }, {
-    freezeTableName: true,
-    syncOnAssociation: false,
-    underscored: true,
+
     classMethods: {
       associate: function (models) {
         employeeterritories

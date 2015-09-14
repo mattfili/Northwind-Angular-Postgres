@@ -3,12 +3,17 @@ var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var request = require('request');
-var restful   = require('sequelize-restful-extended');
+var http = require('http');
+
 var app = express();
   
-// ROUTE REQUIRES
+// ROUTE REQUIRES AND SERVER CREATION
 var port = process.env.PORT || 8080;
-var altApi = require('./api')
+var server = http.createServer(app);
+var models = require('./models')
+
+var api = require('./api');
+
 
 // MIDDLEWARES
 app.use(logger('common'));
@@ -17,30 +22,35 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // DEFINE MODELS, ENABLE BULK IMPORT, AND INITIALIZE REST API
-var models = require('./models')
+
 
 // var sequelize = require('./models/index')
+app.use('/api', api)
 
-models.sequelize.sync().done(function() {
-	console.log(models.sequelize)
+app.set('port', port);
+models.sequelize.sync().then(function () {
+	http.createServer(app).listen(app.get('port'), function() {
+		console.log("You're listening to http://localhost:" + app.get('port') + " home of the internet's smoothest jazz and easy listening" );
+
+	})
 })
 
 
-app.use(restful(models.sequelize));
 
 
 
 
-app.use('/dapi', altApi)
-
-// REST API ENDPOINTS AUTO-GENERATED
 
 
 
 
-// START SERVER
-app.listen(port)
-console.log("You're listening to http://localhost:" + port + " home of the internet's smoothest jazz and easy listening" );
+
+// API ENDPOINTS
+
+
+
+
+
 
 
 // CATCH ALL FOR HTML 5 MODE (allows UI-Router driven states)
