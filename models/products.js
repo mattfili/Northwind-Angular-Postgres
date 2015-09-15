@@ -18,15 +18,19 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       field: 'SupplierID',     
       allowNull: true,
-      references: 'suppliers',
-      referencesKey: 'SupplierID'
+      references: {
+        model: 'suppliers',
+        key: 'SupplierID'
+      }
     },
     CategoryID: {
       type: DataTypes.INTEGER,
       field: 'CategoryID',     
       allowNull: true,
-      references: 'categories',
-      referencesKey:'CategoryID'
+      references: {
+        model: 'categories',
+        key:'CategoryID'
+      }
     },
     QuantityPerUnit: {
       type: DataTypes.STRING,
@@ -53,13 +57,13 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   }, {
-
+    freezeTableName: true,
+    syncOnAssociation: false,
     classMethods: {
       associate: function (models) {
-        products
-          .hasOne(models.categories, {foreignKey: 'CategoryID'})
-          .hasOne(models.suppliers, {foreignKey: 'SupplierID'})
-          .hasMany(models.order_details, {foreignKey: 'ProductID'})
+        products.belongsTo(models.categories, {foreignKey: 'CategoryID'})
+        products.belongsTo(models.suppliers, {foreignKey: 'SupplierID'})
+        products.belongsToMany(models.orders, {through: 'order_details', foreignKey: 'ProductID'})
       }
     }
   });

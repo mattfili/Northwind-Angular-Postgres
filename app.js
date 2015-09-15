@@ -25,17 +25,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // var sequelize = require('./models/index')
-app.use('/api', api)
+
 
 app.set('port', port);
 models.sequelize.sync().then(function () {
-	http.createServer(app).listen(app.get('port'), function() {
+	server.listen(app.get('port'), function() {
 		console.log("You're listening to http://localhost:" + app.get('port') + " home of the internet's smoothest jazz and easy listening" );
 
 	})
 })
 
 
+app.use('/api', api)
 
 
 

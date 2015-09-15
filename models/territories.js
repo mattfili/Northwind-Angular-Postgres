@@ -18,16 +18,17 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       field: 'RegionID',
       allowNull: false,
-      references: 'region',
-      referencesKey: 'RegionID'
+      references: {
+        model: 'region',
+        key: 'RegionID'
+      }
     }
   }, {
 
     classMethods: {
       associate: function (models) {
-        territories
-          .hasMany(models.employeeterritories, {foreignKey: 'TerritoryID'})
-          .hasOne(models.region, {foreignKey: 'RegionID'})
+        territories.hasMany(models.employeeterritories, {foreignKey: 'TerritoryID'})
+        territories.hasOne(models.region, {foreignKey: 'RegionID'})
       }
     }
   });

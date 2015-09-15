@@ -15,8 +15,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     freezeTableName: true,
-    syncOnAssociation: false,
-    underscored: true
+    syncOnAssociation: false
   });
   return customerdemographics;
 };

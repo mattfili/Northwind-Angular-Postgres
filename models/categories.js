@@ -22,11 +22,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-
+    freezeTableName: true,
+    syncOnAssociation: false,
     classMethods: {
       associate: function (models) {
-        categories
-          .belongsTo(models.products, {foreignKey: 'CategoryID'})
+        categories.hasMany(models.products, {foreignKey: 'CategoryID'})
       }
     }
   });

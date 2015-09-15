@@ -7,22 +7,26 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       field: 'EmployeeID',      
       allowNull: false,
-      references: 'employees',
-      referencesKey: 'EmployeeID'
+      references: {
+        model: 'employees',
+        key: 'EmployeeID'
+      }
     },
     TerritoryID: {
       type: DataTypes.INTEGER,
       field: 'TerritoryID',     
       allowNull: false,
-      references: 'territories',
-      referencesKey: 'TerritoryID'
+      references: {
+        model: 'territories',
+        key: 'TerritoryID'
+      }
       }
   }, {
-
+    freezeTableName: true,
+    syncOnAssociation: false,
     classMethods: {
       associate: function (models) {
-        employeeterritories
-          .belongsTo(models.employees, {foreignKey: 'EmployeeID'})
+        employeeterritories.belongsTo(models.employees, {foreignKey: 'EmployeeID'})
       }
     }
   });

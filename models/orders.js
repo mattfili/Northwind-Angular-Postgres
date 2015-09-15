@@ -13,15 +13,19 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       field: 'CustomerID',     
       allowNull: true,
-      references: 'customers',
-      referencesKey:'id'
+      references: {
+        model: 'customers',
+        key:'CustomerID'
+      }
     },
     EmployeeID: {
       type: DataTypes.INTEGER,
       field: 'EmployeeID',     
       allowNull: true,
-      references: 'employees',
-      referencesKey: 'EmployeeID'
+      references: {
+        model:'employees',
+        key: 'EmployeeID'
+      }
     },
     OrderDate: {
       type: DataTypes.DATE,
@@ -38,8 +42,10 @@ module.exports = function(sequelize, DataTypes) {
     ShipVia: {
       type: DataTypes.INTEGER,
       allowNull: true,
-      references: 'shippers',
-      referencesKey: 'ShipperID'
+      references: {
+        model: 'shippers',
+        key: 'ShipperID'
+      }
     },
     Freight: {
       type: DataTypes.INTEGER,
@@ -70,14 +76,14 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    
+    freezeTableName: true,
+    syncOnAssociation: false,
     classMethods: {
       associate: function (models) {
-        orders
-          .hasMany(models.order_details, {foreignKey: 'OrderID'})
-          .hasOne(models.shippers, {foreignKey: 'ShipVia'})
-          .hasOne(models.customers, {foreignKey: 'CustomerID'})
-          .hasOne(models.employees, {foreignKey: 'EmployeeID', as: 'Salesperson'} )
+        orders.belongsToMany(models.products, {through: 'order_details', foreignKey: 'OrderID'})
+        orders.belongsTo(models.shippers, {foreignKey: 'ShipVia'})
+        orders.belongsTo(models.customers, {foreignKey: 'CustomerID'})
+        orders.belongsTo(models.employees, {foreignKey: 'EmployeeID', as: 'Salesperson'} )
       }
     }
   });

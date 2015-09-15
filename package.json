@@ -36,7 +36,7 @@
     "pg": "^4.4.1",
     "pg-hstore": "^2.3.2",
     "request": "^2.60.0",
-    "sequelize": "^1.7.11",
+    "sequelize": "^3.7.1",
     "sequelize-import": "^1.2.1",
     "serve-favicon": "~2.3.0",
     "xml2js": "^0.4.10"

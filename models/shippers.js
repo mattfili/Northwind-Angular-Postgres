@@ -21,8 +21,7 @@ module.exports = function(sequelize, DataTypes) {
 
     classMethods: {
       associate: function (models) {
-        shippers
-          .hasMany(models.orders, {foreignKey: 'ShipVia'})
+        shippers.hasMany(models.orders, {foreignKey: 'ShipVia'})
       }
     }
   });

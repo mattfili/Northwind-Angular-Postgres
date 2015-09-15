@@ -78,13 +78,13 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-
+    freezeTableName: true,
+    syncOnAssociation: false,
     classMethods: {
       associate: function (models) {
-        employees
-          .hasMany(models.orders, {foreignKey: 'EmployeeID'})
-          .hasMany(models.employeeterritories, {foreignKey: 'EmployeeID'})
-          .hasOne(models.employees, {foreignKey: 'ReportsTo'})
+        employees.hasMany(models.orders, {foreignKey: 'EmployeeID'})
+        employees.hasMany(models.employeeterritories, {foreignKey: 'EmployeeID'})
+        employees.hasOne(models.employees, {foreignKey: 'ReportsTo'})
       }
     }
   });

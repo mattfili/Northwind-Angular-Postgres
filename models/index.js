@@ -8,7 +8,7 @@ var config    = require(__dirname + '/../config/config.json')[env];
 var sequelize = new Sequelize(config.database, config.username, config.password, {
   port: config.port,
   host: config.host,
-  logger: console.log,
+  logging: console.log,
   dialect: config.dialect
 });
 var db        = {};
@@ -26,9 +26,9 @@ fs
   })
   .forEach(function(file) {
     var model = sequelize.import(path.join(__dirname, file));
-    // model.removeAttribute('id')
-    // model.removeAttribute('createdAt')
-    // model.removeAttribute('updatedAt')
+    model.removeAttribute('id')
+    model.removeAttribute('createdAt')
+    model.removeAttribute('updatedAt')
     db[model.name] = model;
   });
 

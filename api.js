@@ -9,6 +9,6 @@ var router = express.Router();
 // var ctrl = require(__dirname + '/controller')
 
 
-router.get('', ctrl.getStuff)
+router.get('/products', ctrl.getStuff)
 
 module.exports = router

@@ -6,15 +6,19 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER,
       field: 'OrderID',     
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true
+      references: {
+        model: 'orders',
+        key: 'OrderID'
+      }
     },
     ProductID: {
       type: DataTypes.INTEGER,
       field: 'ProductID',     
       allowNull: false,
-      references: 'products',
-      referencesKey: 'ProductID'
+      references: {
+        model: 'products',
+        key: 'ProductID'
+      }
     },
     UnitPrice: {
       type: DataTypes.INTEGER,
@@ -29,14 +33,14 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   }, {
-    
-    classMethods: {
-      associate: function (models) {
-        order_details
-          .belongsTo(models.orders, {foreignKey: 'OrderID'})
-          .hasOne(models.products, {foreignKey: 'ProductID'})
-      }
-    }
+    freezeTableName: true,
+    syncOnAssociation: false,
+    // classMethods: {
+    //   associate: function (models) {
+    //     order_details.belongsToMany(models.orders, {foreignKey: 'OrderID'})
+    //     order_details.hasOne(models.products, {foreignKey: 'ProductID'})
+    //   }
+    // }
   });
   return order_details;
 };

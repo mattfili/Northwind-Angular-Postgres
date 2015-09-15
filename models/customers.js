@@ -50,11 +50,11 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-
+    freezeTableName: true,
+    syncOnAssociation: false,
     classMethods: {
       associate: function (models) {
-       customers
-          .hasMany(models.orders, {foreignKey: 'CustomerID'})
+       customers.hasMany(models.orders, {foreignKey: 'CustomerID'})
       }
     }
   });
