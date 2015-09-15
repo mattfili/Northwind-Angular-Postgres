@@ -9,7 +9,7 @@ angular.module('Northwind')
 		getDynamic: function (params, cb) {
 			$http
 				.post('/api/dynamic', {
-					table: params.base,
+					base: params.base,
 					join: params.join || null
 				}).then(function(result) {
 					cb(result)

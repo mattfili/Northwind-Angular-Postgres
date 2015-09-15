@@ -5,15 +5,27 @@ angular.module('Northwind')
 
 	vm.table = {base: '', join: ''}
 
-	// vm.data = Commercial.query().$promise.then(function (result) {
-	// 	return result;
-	// })
+	vm.dbHeaders = {
+		base: ['products', 'orders', 'customers', 'suppliers', 'categories', 'shippers']
+	} 
 
 	vm.submit = function (table) {
-		simpleAPI.getDynamic(table, function(data) {
+		simpleAPI.getDynamic(table, function (data) {
 			console.log(data)
 			vm.data = data
 		});
 	}
+
+
+	// $scope.gridOptions = {
+ //    enableGridMenu: true,
+ //    data: vm.data
+ //    // importerDataAddCallback: function ( grid, newObjects ) {
+ //    //   vm.data = $scope.data.concat( newObjects );
+ //    // },
+ //    // onRegisterApi: function(gridApi){
+ //    //   $scope.gridApi = gridApi;
+ //    // }
+ //  };
 
 });
