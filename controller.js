@@ -1,10 +1,28 @@
 var Model = require('./models')
 
-console.log(Model.orders)
+// exports.getProducts = function (req, res) {
+// 	Models.products.findAll({ 
+// 	  include: [
+// 	    {model: Model.categories, 
+// 	  include: [
+// 	    {model: Model.suppliers}
+// 	     ]}
+// 	    ]
+// 	}).then(function (data) {
+// 		console.log(data);
+// 		res.json(data[0]);
+// 	});
+// }
 
-exports.getStuff = function(req, res) {
-	Model.suppliers.findAll({include: [Model.products]})
-		.then(function (orders) {
-			res.json(orders);
-		});
+
+exports.getDynamic = function(req, res) {
+	var baselineTable = req.body.table 
+	console.log(baselineTable)
+
+	Model[baselineTable].findAll().then(function (data) {
+
+		console.log(data)
+		res.json(data);
+	})
+
 }

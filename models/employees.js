@@ -82,9 +82,9 @@ module.exports = function(sequelize, DataTypes) {
     syncOnAssociation: false,
     classMethods: {
       associate: function (models) {
-        employees.hasMany(models.orders, {foreignKey: 'EmployeeID'})
-        employees.hasMany(models.employeeterritories, {foreignKey: 'EmployeeID'})
-        employees.hasOne(models.employees, {foreignKey: 'ReportsTo'})
+        employees.hasMany(models.orders, {foreignKey: 'EmployeeID'});
+        employees.hasMany(models.employeeterritories, {foreignKey: 'EmployeeID'});
+        employees.hasOne(models.employees, {foreignKey: 'ReportsTo'});
       }
     }
   });

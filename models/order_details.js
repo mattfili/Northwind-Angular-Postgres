@@ -22,7 +22,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     UnitPrice: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      references: {
+        model: 'products',
+        key: 'UnitPrice'
+      }
     },
     Quantity: {
       type: DataTypes.INTEGER,
@@ -35,12 +39,6 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     freezeTableName: true,
     syncOnAssociation: false,
-    // classMethods: {
-    //   associate: function (models) {
-    //     order_details.belongsToMany(models.orders, {foreignKey: 'OrderID'})
-    //     order_details.hasOne(models.products, {foreignKey: 'ProductID'})
-    //   }
-    // }
   });
   return order_details;
 };

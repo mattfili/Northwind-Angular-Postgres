@@ -80,7 +80,7 @@ module.exports = function(sequelize, DataTypes) {
     syncOnAssociation: false,
     classMethods: {
       associate: function (models) {
-        orders.belongsToMany(models.products, {through: 'order_details', foreignKey: 'OrderID'})
+        orders.belongsToMany(models.products, {through: models.order_details, foreignKey: 'OrderID'})
         orders.belongsTo(models.shippers, {foreignKey: 'ShipVia'})
         orders.belongsTo(models.customers, {foreignKey: 'CustomerID'})
         orders.belongsTo(models.employees, {foreignKey: 'EmployeeID', as: 'Salesperson'} )

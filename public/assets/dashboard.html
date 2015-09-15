@@ -1,15 +1,23 @@
 
-<div class="grid-content align-center">
-  <h4 class="text-center">Look For
-    <label>Select
-      <select name="" id="">
-        <option ng-value="Product" ng-model="Ctrl.value">Product</option>
-        <option ng-value="Orders" ng-model="Ctrl.value">Orders</option>
-        <option ng-value="Customers" ng-model="Ctrl.value">Customers</option>
-        <option ng-value="Employees" ng-model="Ctrl.value">Employees</option>
-      </select>
-      <button ng-click="Ctrl.getTables()">Get Table</button>
-    </label>
+<div class="grid-content">
+  <h4 class="text-center">Baseline
+    <select ng-model="Ctrl.table.base">
+      <option id="Products" type="checkbox" ng-value="products">products</option>
+      <option id="Orders" type="checkbox" ng-value="orders">orders </option>
+      <option id="Customers" type="checkbox" ng-value="customers">customers</option>
+      <option id="Employees" type="checkbox" ng-value="employees">employees </option>
+      <option id="Suppliers" type="checkbox" ng-value="suppliers">supplie</option>
+    </select>
+  </h4>
+  <h4 class="text-center">Join
+    <select ng-model="Ctrl.table.join">
+      <option id="Products" type="checkbox" ng-value="products">product </option>
+      <option id="Orders" type="checkbox" ng-value="orders">orders </option>
+      <option id="Customers" type="checkbox" ng-value="customers">customers </option>
+      <option id="Employees" type="checkbox" ng-value="employees">employees </option>
+      <option id="Suppliers" type="checkbox" ng-value="suppliers">supplie</option>
+    </select>
+    <button type="submit" ng-click="Ctrl.submit(Ctrl.table)">search</button>
   </h4>
   
   

@@ -63,7 +63,7 @@ module.exports = function(sequelize, DataTypes) {
       associate: function (models) {
         products.belongsTo(models.categories, {foreignKey: 'CategoryID'})
         products.belongsTo(models.suppliers, {foreignKey: 'SupplierID'})
-        products.belongsToMany(models.orders, {through: 'order_details', foreignKey: 'ProductID'})
+        products.belongsToMany(models.orders, {through: models.order_details, foreignKey: 'ProductID'})
       }
     }
   });

@@ -1,17 +1,19 @@
 angular.module('Northwind')
 
-.factory('Commercial', function($resource, $http) {
-	return {
-		get: function() {
-		return $resource ('/api/products');
-		},
+// .factory('Commercial', function($resource, $http) {
+// 	return $resource('/api/getOne', {})
+// })
 
-		getIt: function(cb) {
+.factory('simpleAPI', function ($http) {
+	return {
+		getDynamic: function (params, cb) {
 			$http
-				.get('/dapi')
-				.success(function(result) {
-					cb(result);
-				});
+				.post('/api/dynamic', {
+					table: params.base,
+					join: params.join || null
+				}).then(function(result) {
+					cb(result)
+				})
 		}
 	}
 })

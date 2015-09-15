@@ -1,17 +1,24 @@
-.grid-content.align-center
+.grid-content
+	h4.text-center Baseline
+		select(ng-model="Ctrl.table.base")
+			option#Products(type="checkbox"  ng-value="products") products
+			option#Orders(type="checkbox"  ng-value="orders") orders 
+			option#Customers(type="checkbox"  ng-value="customers") customers
+			option#Employees(type="checkbox"  ng-value="employees") employees 
+			option#Suppliers(type="checkbox"  ng-value="suppliers") supplie
+	h4.text-center Join
+		select(ng-model="Ctrl.table.join")
+			option#Products(type="checkbox"  ng-value="products") product 
+			option#Orders(type="checkbox"  ng-value="orders") orders 
+			option#Customers(type="checkbox"  ng-value="customers") customers 
+			option#Employees(type="checkbox"  ng-value="employees") employees 
+			option#Suppliers(type="checkbox"  ng-value="suppliers") supplie
+		button(type="submit" ng-click="Ctrl.submit(Ctrl.table)") search
 
-	h4.text-center Look For
-		label Select
-			select(name="" id="")
-				option(ng-value="Product" ng-model="Ctrl.value") Product
-				option(ng-value="Orders" ng-model="Ctrl.value") Orders
-				option(ng-value="Customers" ng-model="Ctrl.value") Customers
-				option(ng-value="Employees" ng-model="Ctrl.value") Employees
-			button(ng-click="Ctrl.getTables()") Get Table
 
 	//- form(type="submit" method="GET" ng-submit="Ctrl.getTables()")
-	//- 	label(name="topTable" id="" ng-repeat="table in Ctrl.table.baseline")
-	//- 		input(ng-model="Ctrl.value" ng-value="table" name="topTable"  ng-model-options="{ getterSetter: true }" ng-true-value="table" ng-bind="Ctrl.value.table()")  {{table}}  
+	//- 	label(name="topTable" 
+		#(ng	id"" ng-repeat="table in Ctrl.table.base(label(for="(ng") ng: line")odel="Ctrl.value" ng-value="table" name="topTable"  ng-model-options="{ getterSetter: true }" ng-true-value="table" ng-bind="Ctrl.value.table()")  {{table}}  
 	//- 	button.button-auth.expand(type="submit")
 	//- 	label {{Ctrl.value}}
 
