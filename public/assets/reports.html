@@ -1,0 +1,28 @@
+
+<div class="grid-content">
+  <form>
+    <label>Base Table</label>
+    <div class="small-12 medium-4 large-4">
+      <select ng-model="Ctrl.table.base">
+        <option ng-repeat="table in Ctrl.dbHeaders.base" ng-value="table">{{table}}</option>
+      </select>
+    </div>
+    <label>Join Table</label>
+    <div class="small-12 medium-4 large-4">
+      <select ng-model="Ctrl.table.join">
+        <option ng-repeat="joinTable in Ctrl.dbHeaders.base" type="checkbox" ng-value="joinTable">{{joinTable}}</option>
+      </select>
+      <button type="submit" ng-click="Ctrl.submit(Ctrl.table)" class="button expand">search</button>
+    </div>
+  </form>
+</div>
+<div class="grid-content">
+  <table>
+    <tr>
+      <th ng-repeat="headers in Ctrl.headers">{{headers}}</th>
+    </tr>
+    <tr ng-repeat="data in Ctrl.data">
+      <td ng-repeat="(key, item) in data | orderBy: 'item'">{{item}}</td>
+    </tr>
+  </table>
+</div>

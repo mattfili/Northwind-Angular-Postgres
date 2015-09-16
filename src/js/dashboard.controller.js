@@ -9,23 +9,49 @@ angular.module('Northwind')
 		base: ['products', 'orders', 'customers', 'suppliers', 'categories', 'shippers']
 	} 
 
-	vm.submit = function (table) {
-		simpleAPI.getDynamic(table, function (data) {
-			console.log(data)
-			vm.data = data
+	vm.submit = function (input) {
+		simpleAPI.getDynamic(input, function (response) {
+			vm.data = response.data;			
+			vm.headers = Object.keys(response.data[0])
 		});
 	}
 
+	// marketing
 
-	// $scope.gridOptions = {
- //    enableGridMenu: true,
- //    data: vm.data
- //    // importerDataAddCallback: function ( grid, newObjects ) {
- //    //   vm.data = $scope.data.concat( newObjects );
- //    // },
- //    // onRegisterApi: function(gridApi){
- //    //   $scope.gridApi = gridApi;
- //    // }
- //  };
+		simpleAPI.getDynamic('orders', function (response) {
+			vm.orders = response;
+		})
 
-});
+
+	vm.options = {
+	    chart: {
+	        type: 'stackedAreaChart',
+	        height: 450,
+	        margin : {
+	            top: 20,
+	            right: 20,
+	            bottom: 60,
+	            left: 40
+	        },
+	        x: function(d){return d[0];},
+	        y: function(d){return d[1];},
+	        useVoronoi: false,
+	        clipEdge: true,
+	        transitionDuration: 500,
+	        useInteractiveGuideline: true,
+	        xAxis: {
+	            showMaxMin: false,
+	            tickFormat: function(d) {
+	                return d3.time.format('%x')(new Date(d))
+	            }
+	        },
+	        yAxis: {
+	            tickFormat: function(d){
+	                return d3.format(',.2f')(d);
+	            }
+	        }
+	    }
+    }
+
+
+})

@@ -203,7 +203,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build-dev', [
     'clean',
     'copy',
-    'copy:dep',
+    // 'copy:dep',
     'sass:dev',
     'babel:dev',
     'bower_concat',

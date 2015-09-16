@@ -2,16 +2,25 @@ var Model = require('./models')
 
 exports.getDynamic = function(req, res) {
 	var baselineTable = req.body.base 
-	var joinTable = req.body.join
+	var joinTable = req.body.join 
 
-	console.log(baselineTable)
-	console.log(joinTable)
+	console.log(joinTable.length)
 
-	Model[baselineTable].findAll({
-		 include: [ Model[joinTable] ] 
-	}).then(function (data) {
-		console.log(data)
-		res.json(data);
-	})
+	if (joinTable.length < 1) {
+	
+		Model[baselineTable].findAll()
+		.then(function (data) {
+			res.json(data)
+		})
+
+	} else {
+		
+		Model[baselineTable].findAll({
+			 include: [ Model[joinTable] ] 
+		}).then(function (data) {
+			res.json(data)
+		})
+
+	}
 
 }

@@ -20,6 +20,7 @@ app.use(logger('common'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'bower_components/foundation-apps/js/angular')));
 
 // DEFINE MODELS, ENABLE BULK IMPORT, AND INITIALIZE REST API
 

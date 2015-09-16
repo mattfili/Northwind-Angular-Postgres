@@ -1,0 +1,25 @@
+.grid-content
+	form
+		label Base Table
+		div.small-12.medium-4.large-4
+			select(ng-model="Ctrl.table.base")
+				option(ng-repeat="table in Ctrl.dbHeaders.base" ng-value="table") {{table}}
+		label Join Table
+		div.small-12.medium-4.large-4
+			select(ng-model="Ctrl.table.join")
+				option(ng-repeat="joinTable in Ctrl.dbHeaders.base" type="checkbox"  ng-value="joinTable") {{joinTable}}
+			button.button.expand(type="submit" ng-click="Ctrl.submit(Ctrl.table)") search
+.grid-content
+	table
+		tr
+			th(ng-repeat="headers in Ctrl.headers") {{headers}}
+		tr(ng-repeat="data in Ctrl.data")
+			td(ng-repeat="(key, item) in data | orderBy: 'item'") {{item}}
+
+
+
+
+
+
+
+

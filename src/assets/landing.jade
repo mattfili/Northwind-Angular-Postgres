@@ -1,6 +1,11 @@
+.panel-left#leftPanel(zf-panel="" position="left")
+	a(zf-close="") X
+	ul
+		li: a(ui-sref="start.marketing") Marketing
+
 .vertical.grid-block
-	ui-view(name="dash")
-	ui-view(name="details")
+	ui-view(name="reports")
+	ui-view(name="marketing")
 
 
 

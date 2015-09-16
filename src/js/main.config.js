@@ -1,4 +1,4 @@
-angular.module('Northwind', ['ui.router', 'foundation', 'foundation.common', 'ngAnimate', 'ngCookies', 'ngResource', 'ngMessages', 'mm.foundation'])
+angular.module('Northwind', ['ui.router', 'foundation', 'foundation.common', 'ngAnimate', 'ngCookies', 'ngResource', 'ngMessages', 'mm.foundation', 'nvd3'])
 
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 	$urlRouterProvider.when('', '/');
@@ -23,11 +23,11 @@ angular.module('Northwind', ['ui.router', 'foundation', 'foundation.common', 'ng
 	.state('start.dash', {
 		url: '/landing',
 	    views: {
-	      'dash': {
-	        templateUrl: 'assets/dashboard.html'
+	      'reports': {
+	        templateUrl: 'assets/reports.html'
 	      },
-	      'details': {
-	        templateUrl: 'assets/details.html'
+	      'marketing': {
+	        templateUrl: 'assets/marketing.html'
 	      }
 	    }
 	})
