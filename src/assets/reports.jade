@@ -8,7 +8,7 @@
 		div.small-12.medium-4.large-4
 			select(ng-model="Ctrl.table.join")
 				option(ng-repeat="joinTable in Ctrl.dbHeaders.base" type="checkbox"  ng-value="joinTable") {{joinTable}}
-			button.button.expand(type="submit" ng-click="Ctrl.submit(Ctrl.table)") search
+			button(type="submit" ng-click="Ctrl.submit(Ctrl.table)") Query
 .grid-content
 	table
 		tr

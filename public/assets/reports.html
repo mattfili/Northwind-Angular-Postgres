@@ -12,7 +12,7 @@
       <select ng-model="Ctrl.table.join">
         <option ng-repeat="joinTable in Ctrl.dbHeaders.base" type="checkbox" ng-value="joinTable">{{joinTable}}</option>
       </select>
-      <button type="submit" ng-click="Ctrl.submit(Ctrl.table)" class="button expand">search</button>
+      <button type="submit" ng-click="Ctrl.submit(Ctrl.table)">Query</button>
     </div>
   </form>
 </div>

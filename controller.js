@@ -4,9 +4,9 @@ exports.getDynamic = function(req, res) {
 	var baselineTable = req.body.base 
 	var joinTable = req.body.join 
 
-	console.log(joinTable.length)
+	console.log(req.body)
 
-	if (joinTable.length < 1) {
+	if (!joinTable) {
 	
 		Model[baselineTable].findAll()
 		.then(function (data) {
@@ -16,7 +16,10 @@ exports.getDynamic = function(req, res) {
 	} else {
 		
 		Model[baselineTable].findAll({
-			 include: [ Model[joinTable] ] 
+			 include: [{
+			  model: Model[joinTable],
+			  required: true
+			}]
 		}).then(function (data) {
 			res.json(data)
 		})
@@ -24,3 +27,6 @@ exports.getDynamic = function(req, res) {
 	}
 
 }
+
+
+

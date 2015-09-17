@@ -3,24 +3,19 @@ angular.module('Northwind')
 .controller('dashController', function ($scope, $q, simpleAPI) {
 	var vm = this;
 
-	vm.table = {base: '', join: ''}
+	// vm.table = {base: '', join: ''}
 
 	vm.dbHeaders = {
-		base: ['products', 'orders', 'customers', 'suppliers', 'categories', 'shippers']
+		base: ['', 'products', 'orders', 'customers', 'suppliers', 'categories', 'shippers']
 	} 
 
 	vm.submit = function (input) {
+		console.log(input)
 		simpleAPI.getDynamic(input, function (response) {
 			vm.data = response.data;			
 			vm.headers = Object.keys(response.data[0])
-		});
-	}
-
-	// marketing
-
-		simpleAPI.getDynamic('orders', function (response) {
-			vm.orders = response;
 		})
+	}
 
 
 	vm.options = {
