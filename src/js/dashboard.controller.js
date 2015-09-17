@@ -6,7 +6,8 @@ angular.module('Northwind')
 	// vm.table = {base: '', join: ''}
 
 	vm.dbHeaders = {
-		base: ['', 'products', 'orders', 'customers', 'suppliers', 'categories', 'shippers']
+		base: ['', 'products', 'orders', 'customers', 'employees', 'suppliers', 'categories', 'shippers', 'order_id', 
+		'territories', 'region', 'customerdemographics']
 	} 
 
 	vm.submit = function (input) {
