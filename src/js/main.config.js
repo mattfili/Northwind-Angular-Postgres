@@ -1,4 +1,4 @@
-angular.module('Northwind', ['ui.router', 'foundation', 'foundation.common', 'ngAnimate', 'ngCookies', 'ngResource', 'ngMessages', 'mm.foundation', 'nvd3'])
+angular.module('Northwind', ['ui.router', 'foundation', 'foundation.common', 'ngAnimate', 'ngCookies', 'ngResource', 'ngMessages', 'mm.foundation', 'nvd3', 'ngTable'])
 
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 	$urlRouterProvider.when('', '/');

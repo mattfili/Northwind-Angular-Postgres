@@ -1,6 +1,6 @@
 angular.module('Northwind')
 
-.controller('dashController', function ($scope, $q, simpleAPI) {
+.controller('dashController', function ($scope, $q, simpleAPI, NgTableParams) {
 	var vm = this;
 
 	// vm.table = {base: '', join: ''}
@@ -47,7 +47,56 @@ angular.module('Northwind')
 	            }
 	        }
 	    }
-    }
+    };
+
+    (function() {
+    	simpleAPI.extSalesMetrics(function (result) {
+	    	console.log(result);
+	    	vm.salesMetrics = result;
+    	});
+    })();
+
+  this.cols = [{
+      field: "ProductName",
+      title: "Product Name",
+      sortable: "ProductName",
+      show: true,
+      groupable: "ProductName"
+    }, {
+      field: "OrderDate",
+      title: "Order Date",
+      sortable: "OrderDate",
+      show: true,
+      groupable: "OrderDate"
+    }, {
+      field: "ShipCity",
+      title: "Ship City",
+      sortable: "ShipCity",
+      show: true,
+      groupable: "ShipCity"
+    },{
+      field: "ShipCountry",
+      title: "Ship Country",
+      sortable: "ShipCountry",
+      show: true,
+      groupable: "ShipCountry"
+    },{
+      field: "ShippedDate",
+      title: "Shipped Date",
+      sortable: "ShippedDate",
+      show: true,
+      groupable: "ShippedDate"
+    }, {
+      field: "Quantity",
+      title: "Quantity",
+      show: true,
+    }, {
+      field: "UnitPrice",
+      title: "Unit Price",
+      show: true
+    }];
+
+
 
 
 })

@@ -1,6 +1,5 @@
 var express = require('express');
 var ctrl = require('./controller');
-var sequelizeMiddleware = require(__dirname + '/models/index')
 
 var router = express.Router();
 
@@ -8,6 +7,8 @@ var router = express.Router();
 
 // ROUTES
 router.post('/dynamic', ctrl.getDynamic)
+
+router.get('/ext/sales', ctrl.extSales)
 
 
 module.exports = router
