@@ -1,7 +1,21 @@
 var _ = require('lodash');
 var Model = require('./models')
 
-exports.mapping = function(data, cb) {
+
+exports.toPOJO = function(instance) {
+  if (_.has(instance, 'dataValues')) {
+    instance = instance.dataValues;
+  }
+
+  return _.cloneDeep(instance, function (value) {
+    return _.has(value, 'dataValues') ? value.dataValues : undefined;
+  });
+}
+
+
+exports.mergeDuplicates = function (data, cb) {
+
+
 	var table = [{
 	  ProductID: {},
       ProductName: {},
@@ -13,7 +27,6 @@ exports.mapping = function(data, cb) {
       UnitsOnOrder: {},
       ReorderLevel: {},
       Discontinued: {},
-      orders: [],
       OrderID: [],
       CustomerID:[],
       EmployeeID:[],
@@ -35,48 +48,39 @@ exports.mapping = function(data, cb) {
 	  Discount:[],
 	  order_details:[],
 	}]
-	
 
-	var keyMap = _.keys(table[0]) // array of template object keys
+	var tableProps = _.keys(table[0])
+	var firstOrder = ''
+
+	data.forEach(function(elem, i) {
+
+		//CONVERT THE FIRST ORDER TO AN ARRAY FOR THE REST TO PUSH TO
+		var firstOrder = data[i].orders
+
+		var objectKeys = _.keys(firstOrder)
+
+		for (key in firstOrder) {
+
+			_.each(tableProps, function (stuff, j) {
+				if (tableProps[i] === objectKeys[i]) {
+					table[i].objectKeys[i].push(firstOrder[key])
+				}
 
 
+			})
 
-	for (var i in data) {
-		var newDefault = _.pick(data[i].dataValues, keyMap)
+			console.log(table)
 
-		for (var j =0; j< data.length; j++) {
-			_.assign(table[j], newDefault)
 		}
-		
-		newDefault = null;
-	}
 
-	var res = _(table)
+	})
 
-	console.log(res)
+	// console.log(data[0].orders[0])
 
-	// table.forEach(function(val, k) {
-	// 	var ordersArray = table[k]
-
-	// 	for (var j in ordersArray) {
-	// 		var ordersVal = ordersArray[j]
-	// 		// console.log(ordersVal)
-
-	// 		for (var m in ordersVal) {
-	// 			var orderMerge = _.pick(ordersVal[m].dataValues, keyMap)
-
-	// 			// console.log(orderMerge)
-	// 			// ._merge(table.orders, orderMerge)
-	// 		}
-	// 	}
-	// })
-
-	// console.log(table[1].orders)
-
-	// console.log(table[1].orders[0])
-		// console.log(table[1].orders[0].dataValues)
+	// console.log(firstOrder)
 
 
-	cb(table)
+	cb(data)
+
+
 }
-
