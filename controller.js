@@ -53,18 +53,27 @@ exports.extSales = function (req, res) {
 	// 		model: Model.order_details
 	// 	}]
 	// }]
-
+	var attributes = ['ProductName']
+	var subattributes = ['OrderDate', 'CustomerID', 'EmployeeID', 'ShipCountry', 'ShipName']
 
 	Model.products.findAll({
+		attributes: attributes,
 		include: [{ 
-			model: Model.orders, required: true
+			model: Model.orders, 
+			required: true, 
+			attributes: subattributes,
+			where: { OrderDate: {$between: [new Date('1996-01-01'), new Date('1996-12-31')]}}
 		}]
 	}).then(function(product) {
+
 		var data = Sequelize.getValuesDedup(product)
 
-		methods.mergeDuplicates(data, function (result) {
-			res.send(result)
-		})
+
+
+		return methods.mergeObjects(data)
+	}).then(function(result) {
+
+		res.send(result)
 	})
 
 }

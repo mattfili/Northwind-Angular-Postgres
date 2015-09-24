@@ -2,6 +2,13 @@ angular.module('Northwind')
 
 .controller('dashController', function ($scope, $q, simpleAPI, NgTableParams) {
 	var vm = this;
+  var queryData = [];
+
+  (function() {
+    simpleAPI.extSalesMetrics(function (result) {
+      console.log(queryData)
+    });
+  })();
 
 	// vm.table = {base: '', join: ''}
 
@@ -50,51 +57,69 @@ angular.module('Northwind')
     };
 
     (function() {
-    	simpleAPI.extSalesMetrics(function (result) {
-	    	console.log(result);
-	    	vm.salesMetrics = result;
-    	});
+      _.map(queryData, function(data, i) {
+        console.log(queryData)
+      })
     })();
 
-  this.cols = [{
-      field: "ProductName",
-      title: "Product Name",
-      sortable: "ProductName",
-      show: true,
-      groupable: "ProductName"
-    }, {
-      field: "OrderDate",
-      title: "Order Date",
-      sortable: "OrderDate",
-      show: true,
-      groupable: "OrderDate"
-    }, {
-      field: "ShipCity",
-      title: "Ship City",
-      sortable: "ShipCity",
-      show: true,
-      groupable: "ShipCity"
-    },{
-      field: "ShipCountry",
-      title: "Ship Country",
-      sortable: "ShipCountry",
-      show: true,
-      groupable: "ShipCountry"
-    },{
-      field: "ShippedDate",
-      title: "Shipped Date",
-      sortable: "ShippedDate",
-      show: true,
-      groupable: "ShippedDate"
-    }, {
-      field: "Quantity",
-      title: "Quantity",
-      show: true,
-    }, {
-      field: "UnitPrice",
-      title: "Unit Price",
-      show: true
-    }];
+
+
+    // vm.data = [
+    //   {
+    //     "key": "Ramen Noodles"
+    //     "values": [[490.00, 1996-12-10], [220.43, 1996-1-8]]
+    //   },
+    //   {
+    //     "key": "Bacon Little Ceasars"
+    //     "values": [[220.01, 1996-08-10], [222.32, 1996-1-9]]
+    //   }
+    // ]
+
+
+
+
+
+
+
+  // this.cols = [{
+  //     field: "ProductName",
+  //     title: "Product Name",
+  //     sortable: "ProductName",
+  //     show: true,
+  //     groupable: "ProductName"
+  //   }, {
+  //     field: "OrderDate",
+  //     title: "Order Date",
+  //     sortable: "OrderDate",
+  //     show: true,
+  //     groupable: "OrderDate"
+  //   }, {
+  //     field: "ShipCity",
+  //     title: "Ship City",
+  //     sortable: "ShipCity",
+  //     show: true,
+  //     groupable: "ShipCity"
+  //   },{
+  //     field: "ShipCountry",
+  //     title: "Ship Country",
+  //     sortable: "ShipCountry",
+  //     show: true,
+  //     groupable: "ShipCountry"
+  //   },{
+  //     field: "ShippedDate",
+  //     title: "Shipped Date",
+  //     sortable: "ShippedDate",
+  //     show: true,
+  //     groupable: "ShippedDate"
+  //   }, {
+  //     field: "Quantity",
+  //     title: "Quantity",
+  //     show: true,
+  //   }, {
+  //     field: "UnitPrice",
+  //     title: "Unit Price",
+  //     show: true
+  //   }];
 
 
 

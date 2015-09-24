@@ -13,74 +13,28 @@ exports.toPOJO = function(instance) {
 }
 
 
-exports.mergeDuplicates = function (data, cb) {
+exports.mergeObjects = function (data) {
 
 
-	var table = [{
-	  ProductID: {},
-      ProductName: {},
-      SupplierID: {},
-      CategoryID: {},
-      QuantityPerUnit: {},
-      UnitPrice: {},
-      UnitsInStock: {},
-      UnitsOnOrder: {},
-      ReorderLevel: {},
-      Discontinued: {},
-      OrderID: [],
-      CustomerID:[],
-      EmployeeID:[],
-      OrderDate:[],
-      RequiredDate:[],
-      ShippedDate:[],
-      ShipVia:[],
-      Freight:[],
-      ShipName:[],
-      ShipAddress:[],
-      ShipCity:[],
-      ShipRegion:[],
-      ShipPostalCode:[],
-      ShipCountry:[],
-      OrderID:[],
-	  ProductID:[],
-	  UnitPrice:[],
-	  Quantity:[],
-	  Discount:[],
-	  order_details:[],
-	}]
 
-	var tableProps = _.keys(table[0])
-	var firstOrder = ''
+	var keys = ['EmployeeID', 'ShipName', 'OrderDate', 'CustomerID', 'Quantity', 'UnitPrice', 'Discount', 'ShipCountry'] // CONVERT TO TEMPLATE TABLE
 
-	data.forEach(function(elem, i) {
+	// PICK THE PROPERTY NAME YOU GAVE IT AND ASSIGN IT TO A NEW OBJECT
+	var flattenedJSON = _.map(data, function (product) {
+	  var obj = _.pick(product, 'ProductName'); // ASSIGN DYNAMIC 1:M STRING
 
-		//CONVERT THE FIRST ORDER TO AN ARRAY FOR THE REST TO PUSH TO
-		var firstOrder = data[i].orders
+	// OMIT THE NESTED DATA AND ASSIGN IT 
+	  var flattenedOrders = _.map(product.orders, function (order) {
+	    return _(order).omit('order_details').assign(order.order_details).value();  // ASSIGN DYNAMIC NESTED OBJ
+	  });
 
-		var objectKeys = _.keys(firstOrder)
+	  _.forEach(keys, function (prop) {
+	    obj[prop] = _.pluck(flattenedOrders , prop);
+	  });
 
-		for (key in firstOrder) {
+	  return obj
+	});
 
-			_.each(tableProps, function (stuff, j) {
-				if (tableProps[i] === objectKeys[i]) {
-					table[i].objectKeys[i].push(firstOrder[key])
-				}
-
-
-			})
-
-			console.log(table)
-
-		}
-
-	})
-
-	// console.log(data[0].orders[0])
-
-	// console.log(firstOrder)
-
-
-	cb(data)
-
+	return flattenedJSON
 
 }

@@ -42,6 +42,7 @@
     "ng-tags-input": "3.0.0",
     "nvd3": "~1.8.1",
     "tether": "~1.1.0",
+    "underscore": "~1.8.3",
     "viewport-units-buggyfill": "~0.5.4"
   },
   "resolutions": {
